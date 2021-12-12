@@ -2,30 +2,35 @@ import styled from "styled-components";
 import { device } from "../../shared/constants/device";
 
 export const Wrapper = styled.main`
-  width: 100%;
-  display: grid;
-  place-items: center;
+  margin: 0 auto;
+  @media ${device.tablet} {
+    display: flex;
+    max-width: 610px;
+  }
+  @media ${device.tabletM} {
+    max-width: 810px;
+  }
+
+  @media ${device.laptop} {
+    max-width: 810px;
+  }
+  @media ${device.laptopM} {
+    max-width: 1100px;
+  }
 `;
 
 export const Main = styled.section`
   /* background: yellow; */
-  width: 100vw;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
+
   @media ${device.tablet} {
+    /* width: 10px; */
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 780px;
-  }
-
-  @media ${device.laptop} {
-    max-width: 972px;
   }
   @media ${device.laptopM} {
-    max-width: 1211.45px;
-  }
-
-  @media ${device.laptopL} {
-    max-width: 1450px;
+    justify-content: center;
   }
 `;
