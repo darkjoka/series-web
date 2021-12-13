@@ -1,5 +1,15 @@
-import { Wrapper } from "./style";
+import { useObserver } from "../../shared/hooks/useObserver";
+import { Helper, Main, Wrapper } from "./style";
 
 export const Misc = () => {
-  return <Wrapper></Wrapper>;
+  const [ref, onScreen] = useObserver({});
+
+  return (
+    <>
+      <Helper ref={ref} />
+      <Wrapper>
+        <Main stay={!onScreen} />
+      </Wrapper>
+    </>
+  );
 };
