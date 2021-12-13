@@ -1,10 +1,14 @@
-import { Body, Head, Wrapper } from "./style";
+import { Body, Head, Item, Wrapper } from "./style";
 
-export const Accordion = () => {
+export const Accordion = ({ index, value, season, episodes }) => {
   return (
     <Wrapper>
-      <Head></Head>
-      <Body></Body>
+      <Head>{season}</Head>
+      <Body>
+        {episodes.map(({ episodeTitle, episodeSize, episodePermalink }) => {
+          return <Item key={episodePermalink} />;
+        })}
+      </Body>
     </Wrapper>
   );
 };
