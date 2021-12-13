@@ -2,21 +2,10 @@ import styled from "styled-components";
 import { device } from "../../../shared/constants/device";
 
 export const Wrapper = styled.div`
-  margin: 8px 0;
-  border: 2px solid gray;
-`;
-
-export const Head = styled.div`
   width: 94%;
-  height: 52px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-  cursor: pointer;
-
+  margin: 8px auto;
+  border: 2px solid gray;
   @media ${device.tablet} {
-    display: flex;
     max-width: 610px;
   }
   @media ${device.tabletM} {
@@ -24,8 +13,17 @@ export const Head = styled.div`
   }
 `;
 
+export const Head = styled.div`
+  width: 100%;
+  height: 52px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  cursor: pointer;
+`;
+
 export const Body = styled.div`
-  width: 94%;
   overflow: hidden;
 `;
 
