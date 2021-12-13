@@ -1,11 +1,11 @@
 import { Hero } from "./Hero";
 import { Info } from "./Info";
 
-export const Detail = () => {
+export const Detail = ({ description, title, hero, seasonEpisodes, genres }) => {
   return (
     <>
-      <Hero />
-      <Info />
+      <Hero hero={hero} />
+      <Info description={description} genres={genres} title={title} />
     </>
   );
 };

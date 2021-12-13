@@ -1,5 +1,5 @@
 import { Wrapper } from "./style";
 
-export const Hero = () => {
+export const Hero = ({ hero }) => {
   return <Wrapper />;
 };

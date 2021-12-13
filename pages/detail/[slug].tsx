@@ -5,17 +5,17 @@ import type { ReactElement } from "react";
 import { Detail } from "../../components/Detail";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log(context.params.slug);
   const response = await axios.get("http://localhost:2/detail");
+
   return {
-    props: { data: response.data, slug: context.params.slug },
+    props: { data: response.data },
   };
 };
 
-const Page = ({ slug, data }) => {
+const Page = ({ data }) => {
   return (
     <>
-      <Detail />
+      <Detail {...data} />
     </>
   );
 };

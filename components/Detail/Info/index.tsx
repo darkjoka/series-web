@@ -1,16 +1,14 @@
 import { Description, Genre, GenreArea, Wrapper } from "./style";
 
-export const Info = () => {
+export const Info = ({ description, genres, title }) => {
   return (
     <Wrapper>
       <GenreArea>
-        {Array(4)
-          .fill(0)
-          .map(() => (
-            <Genre key={Math.random()} />
-          ))}
+        {genres.map(() => (
+          <Genre key={Math.random()} />
+        ))}
       </GenreArea>
-      <Description />
+      <Description>{description}</Description>
     </Wrapper>
   );
 };
