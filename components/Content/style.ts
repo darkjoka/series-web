@@ -20,17 +20,14 @@ export const Wrapper = styled.main`
 `;
 
 export const Main = styled.section`
-  /* background: yellow; */
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
 
   @media ${device.tablet} {
-    /* width: 10px; */
     flex-direction: row;
     flex-wrap: wrap;
   }
   @media ${device.laptopM} {
-    justify-content: center;
+    margin-left: 30px;
   }
 `;
