@@ -21,7 +21,7 @@ export interface DetailProps {
         {
           episodePermalink: string;
           episodeSize: string;
-          episodeTitle: string;
+          epidsodeTitle: string; //TODO: change to correct spelling afteer correction on server
         }
       ];
     }
