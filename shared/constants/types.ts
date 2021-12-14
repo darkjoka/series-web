@@ -14,14 +14,17 @@ export interface DetailProps {
   description: string;
   genres: [string];
   hero: string;
-  seasonEpisodes: {
-    season: string;
-    episodes: [
-      {
-        episodePermalink: string;
-        episodeSize: string;
-        episodeTitle: string;
-      }
-    ];
-  };
+  seasonEpisodes: [
+    {
+      season: string;
+      episodes: [
+        {
+          episodePermalink: string;
+          episodeSize: string;
+          episodeTitle: string;
+        }
+      ];
+    }
+  ];
+  title: string;
 }
