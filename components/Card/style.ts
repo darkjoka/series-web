@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   border-radius: 2px;
   display: flex;
   width: 94%;
+  margin: 8px auto;
 
   @media ${device.tablet} {
     flex-direction: column;
