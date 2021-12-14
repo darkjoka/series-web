@@ -1,11 +1,11 @@
 import { Description, Genre, GenreArea, Wrapper } from "./style";
 
-export const Info = ({ description, genres, title }) => {
+export const Info = ({ description, genres, title }: { description: string; genres: [string]; title: string }) => {
   return (
     <Wrapper>
       <GenreArea>
-        {genres.map(() => (
-          <Genre key={Math.random()} />
+        {genres.map((genre) => (
+          <Genre key={genre}>{genre}</Genre>
         ))}
       </GenreArea>
       <Description>{description}</Description>
