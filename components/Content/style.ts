@@ -21,12 +21,11 @@ export const Wrapper = styled.main`
 
 export const Main = styled.section`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 
   @media ${device.tablet} {
     flex-direction: row;
-    flex-wrap: wrap;
   }
   @media ${device.laptopM} {
     margin-left: 30px;
