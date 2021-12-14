@@ -22,6 +22,7 @@ export const Wrapper = styled.main`
 export const Main = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media ${device.tablet} {
     flex-direction: row;

@@ -6,6 +6,8 @@ export const Wrapper = styled.div`
   border: 2px solid gray;
   padding: 4px;
   border-radius: 2px;
+  display: flex;
+  width: 94%;
 
   @media ${device.tablet} {
     flex-direction: column;
@@ -27,10 +29,37 @@ export const Teaser = styled.div`
 
 export const Content = styled.div`
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding: 4px; */
+  margin-left: 4px;
 
   @media ${device.tablet} {
     margin-top: -68px;
     background-color: white;
     height: 100px;
+    margin-left: 0;
   }
+`;
+
+export const Title = styled.p`
+  margin: 0;
+  font-size: 18px;
+`;
+
+export const Description = styled.p`
+  margin: 0;
+
+  @media ${device.tablet} {
+    font-size: 82%;
+    height: 50px;
+  }
+`;
+
+export const Rating = styled.p`
+  text-align: right;
+
+  margin: 0;
+  font-size: 22px;
 `;
