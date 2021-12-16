@@ -17,6 +17,7 @@ export const Genre = styled.div`
   margin: 2px;
   padding: 10px;
   position: relative;
+  cursor: pointer;
 
   &::before {
     content: "";
