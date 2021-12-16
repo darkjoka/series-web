@@ -7,7 +7,7 @@ export const useAccordion = (length: number) => {
     const active = accordion[index];
     const value: boolean[] = new Array(length).fill(false);
     value[index] = !active;
-    return value;
+    return setAccordion(value);
   };
   return { accordion, handleAccordion };
 };
