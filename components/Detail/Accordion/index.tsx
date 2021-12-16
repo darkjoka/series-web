@@ -2,8 +2,9 @@ import { Body, Head, Item, Wrapper } from "./style";
 
 interface AccordionProps {
   index: number;
-  value: number;
+  value: boolean;
   season: string;
+  handler: (index: number) => void;
   episodes: [
     {
       epidsodeTitle: string; //TODO: correct spelling of episode on backend server
@@ -13,11 +14,11 @@ interface AccordionProps {
   ];
 }
 
-export const Accordion: React.FC<AccordionProps> = ({ index, value, season, episodes }) => {
+export const Accordion: React.FC<AccordionProps> = ({ index, value, season, episodes, handler }) => {
   return (
     <Wrapper>
-      <Head>{season}</Head>
-      <Body>
+      <Head onClick={() => handler(index)}>{season}</Head>
+      <Body isOpen={value} items={episodes.length}>
         {episodes.map(({ epidsodeTitle, episodeSize, episodePermalink }) => {
           return <Item key={episodePermalink}>{epidsodeTitle}</Item>;
         })}

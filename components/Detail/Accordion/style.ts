@@ -23,8 +23,11 @@ export const Head = styled.div`
   cursor: pointer;
 `;
 
-export const Body = styled.div`
+export const Body = styled.div<{ isOpen: boolean; items: number }>`
   overflow: hidden;
+  ${({ isOpen, items }) => {
+    return isOpen ? `max-height: ${72 * items}px` : "max-height: 0";
+  }};
 `;
 
 export const Item = styled.div`
