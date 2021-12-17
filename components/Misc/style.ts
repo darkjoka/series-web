@@ -12,8 +12,6 @@ export const Wrapper = styled.div`
 
 export const Main = styled.div<{ stay: boolean }>`
   width: 200px;
-  height: 300px;
-  background-color: gray;
   position: ${({ stay }) => (stay ? "fixed" : "")};
   top: 86px;
 `;
