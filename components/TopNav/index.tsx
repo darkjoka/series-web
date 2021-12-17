@@ -1,5 +1,14 @@
-import { Wrapper } from "./style";
+import { Hamburger, Logo, Main, NavLinks, ThemeIcon, Wrapper } from "./style";
 
-export const TopNav = () => {
-  return <Wrapper></Wrapper>;
+export const TopNav = ({ handler }: { handler: () => void }) => {
+  return (
+    <Wrapper>
+      <Main>
+        <Hamburger onClick={handler} />
+        <Logo />
+        <NavLinks />
+        <ThemeIcon />
+      </Main>
+    </Wrapper>
+  );
 };
