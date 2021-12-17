@@ -8,7 +8,7 @@ interface FilterProps {
   parent: {
     current: null | HTMLElement;
   };
-  handler: null | (() => void);
+  handler?: null | (() => void);
 }
 
 export const Filter: React.FC<FilterProps> = ({ parent, handler }) => {
