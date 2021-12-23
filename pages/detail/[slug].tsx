@@ -5,10 +5,10 @@ import type { ReactElement } from "react";
 import { Detail } from "../../components/Detail";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const response = await axios.get("http://localhost:2/detail");
+  const response = await axios.get(`${process.env.BACKEND_HOST}/detail/${context.params.detail}`);
 
   return {
-    props: { data: response.data },
+    props: { data: response.data.data },
   };
 };
 
