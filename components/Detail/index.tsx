@@ -6,7 +6,7 @@ import { Accordion } from "./Accordion";
 import { Hero } from "./Hero";
 import { Info } from "./Info";
 
-export const Detail: React.FC<DetailProps> = ({ description, title, hero, seasonEpisodes, genres }) => {
+export const Detail = ({ description, title, hero, seasonEpisodes, genres }: DetailProps) => {
   const { accordion, handleAccordion } = useAccordion(seasonEpisodes.length);
   return (
     <>

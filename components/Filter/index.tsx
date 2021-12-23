@@ -11,7 +11,7 @@ interface FilterProps {
   handler?: null | (() => void);
 }
 
-export const Filter: React.FC<FilterProps> = ({ parent, handler }) => {
+export const Filter = ({ parent, handler }: FilterProps) => {
   const options = {
     root: parent.current,
     rootMargin: "0% -50%",

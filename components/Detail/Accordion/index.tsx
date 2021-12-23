@@ -14,7 +14,7 @@ interface AccordionProps {
   ];
 }
 
-export const Accordion: React.FC<AccordionProps> = ({ index, value, season, episodes, handler }) => {
+export const Accordion = ({ index, value, season, episodes, handler }: AccordionProps) => {
   return (
     <Wrapper>
       <Head onClick={() => handler(index)}>{season}</Head>

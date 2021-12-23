@@ -1,6 +1,12 @@
 import { Description, Genre, GenreArea, Wrapper } from "./style";
 
-export const Info = ({ description, genres, title }: { description: string; genres: [string]; title: string }) => {
+type InfoProps = {
+  description: string;
+  genres: [string];
+  title: string;
+};
+
+export const Info = ({ description, genres, title }: InfoProps) => {
   return (
     <Wrapper>
       <GenreArea>
