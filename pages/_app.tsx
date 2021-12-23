@@ -32,7 +32,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         <TopNav handler={openSide} />
         {isOpen && (
           <Portal selector={"#side"}>
-            <SideNav handler={closeSide} />
+            <SideNav handler={closeSide} visible={isOpen} />
           </Portal>
         )}
         <Hero />
