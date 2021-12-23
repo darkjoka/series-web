@@ -1,10 +1,10 @@
 import { CardProps } from "../../shared/constants/types";
 import { Content, Description, Rating, Teaser, Title, Wrapper } from "./style";
 
-export const Card: React.FC<CardProps> = ({ title, teaser, rating, ...other }) => {
+export const Card: React.FC<CardProps> = ({ title, teaser, rating, imageSrc }) => {
   return (
     <Wrapper>
-      <Teaser />
+      <Teaser alt={title} src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}/image/${imageSrc}`} width={250} height={350} />
       <Content>
         <Title>{title}</Title>
         <Description>

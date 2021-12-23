@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 import { device } from "../../shared/constants/device";
 
 export const Wrapper = styled.div`
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
   padding: 4px;
   border-radius: 2px;
   display: flex;
@@ -18,10 +19,9 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Teaser = styled.div`
+export const Teaser = styled(Image)`
   height: 150px;
   aspect-ratio: 250/350;
-  background-color: gray;
 
   @media ${device.tablet} {
     height: 250px;
@@ -41,6 +41,7 @@ export const Content = styled.div`
     background-color: white;
     height: 100px;
     margin-left: 0;
+    z-index: 1;
   }
 `;
 
