@@ -10,7 +10,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       term: context.params.term,
-      data: response.data,
+      data: response.data.data,
     },
   };
 };
