@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { animated } from "@react-spring/web";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -12,7 +13,7 @@ export const BackDrop = styled.div`
   background-color: gray;
 `;
 
-export const Nav = styled.div`
+export const Nav = styled(animated.div)`
   width: 300px;
   height: 100vh;
   background-color: white;
