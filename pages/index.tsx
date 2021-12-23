@@ -5,10 +5,10 @@ import { Card } from "../components/Card";
 import { CardProps } from "../shared/constants/types";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await axios.get("http://localhost:2/index");
+  const response = await axios.get(process.env.BACKEND_HOST);
   return {
     props: {
-      data: response.data,
+      data: response.data.data,
     },
   };
 };
