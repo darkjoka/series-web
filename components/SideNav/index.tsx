@@ -1,31 +1,40 @@
 import React from "react";
 import { Filter } from "../Filter";
 
-import { BackDrop, Nav, Wrapper } from "./style";
+import { BackDrop, Close, Nav, Wrapper } from "./style";
 
-import { animated, useTransition } from "@react-spring/web";
+import { useTransition, useSpring } from "@react-spring/web";
+import { Icon } from "../Icon";
 
 export const SideNav = ({ handler, visible }: { handler: () => void; visible: boolean }) => {
   const ref = React.useRef(null);
 
-  const transition = useTransition(visible, {
+  const navTransition = useTransition(visible, {
     from: { x: -300 },
     enter: { x: 0 },
-    leave: { x: -300, opacity: 0, delay: 2000 },
+    leave: { x: -300 },
+  });
+
+  const backdropTransition = useTransition(visible, {
+    from: { opacity: 0 },
+    enter: { opacity: 0.4 },
+    leave: { opacity: 0 },
   });
 
   return (
     <>
       <Wrapper>
-        {transition(
+        {navTransition(
           (style, item) =>
             item && (
               <Nav style={style} ref={ref}>
-                <Filter parent={ref} handler={handler} />
+                <Close onClick={handler}>
+                  <Icon icon="close-outline" />
+                </Close>
               </Nav>
             )
         )}
-        <BackDrop onClick={handler} />
+        {backdropTransition((style, item) => item && <BackDrop style={style} onClick={handler} />)}
       </Wrapper>
     </>
   );

@@ -6,9 +6,9 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
 `;
-export const BackDrop = styled.div`
+export const BackDrop = styled(animated.div)`
   height: 100vh;
   background-color: gray;
 `;
@@ -18,4 +18,11 @@ export const Nav = styled(animated.div)`
   height: 100vh;
   background-color: white;
   position: absolute;
+  z-index: 1;
+`;
+
+export const Close = styled.div`
+  height: 40px;
+  margin: 8px;
+  padding: 8px;
 `;
