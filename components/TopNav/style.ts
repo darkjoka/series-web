@@ -8,6 +8,7 @@ export const Wrapper = styled.nav`
   border: 2px solid gray;
   position: fixed;
   background-color: white;
+  z-index: 2;
 `;
 
 export const Main = styled.div`
