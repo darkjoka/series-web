@@ -19,7 +19,8 @@ export default class MyDocument extends Document {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
-            <div id="side"></div>
+            <div id="top" />
+            <div id="side" />
           </>
         ),
       };
