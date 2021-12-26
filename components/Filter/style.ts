@@ -1,24 +1,31 @@
 import styled from "styled-components";
+import { device } from "../../shared/constants/device";
 
 export const Wrapper = styled.div``;
 export const Head = styled.div<{ item: boolean }>`
   margin-top: 2em;
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 100%;
+  padding: 0 42px;
   position: relative;
+
+  @media ${device.laptopM} {
+    padding: 0 24px;
+  }
 
   &::after {
     position: absolute;
     content: "";
-    width: 100%;
-    height: 2px;
+    width: 30%;
+    height: 10px;
+    z-index: -1;
     /* background: linear-gradient(to right, ${({ theme: { theme } }) => theme.brand} 50%, transparent 50%); */
-    background-color: gray;
-    bottom: -16px;
+    background-color: lightgray;
+    bottom: 15px;
     transform: translateX(
       ${({ item }) => {
-        return item && "75%";
+        return item && "175%";
       }}
     );
     transition: transform 0.3s ease-out;
@@ -49,7 +56,6 @@ export const Section = styled.div`
   grid-gap: 8px;
   font-size: 0.9em;
   width: 100%;
-  margin-top: 32px;
   scroll-snap-align: start;
   padding: 8px;
   box-shadow: 0 4px 0 hsla(0, 0%, 100%, 0.15), inset 0 4px 4px hsla(0, 0%, 0%, 0.1);

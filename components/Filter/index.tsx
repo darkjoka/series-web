@@ -9,9 +9,15 @@ interface FilterProps {
     current: null | HTMLElement;
   };
   handler?: null | (() => void);
+  cStyle?: {
+    [key: string]: string;
+  };
+  hStyle?: {
+    [key: string]: string;
+  };
 }
 
-export const Filter = ({ parent, handler }: FilterProps) => {
+export const Filter = ({ parent, handler, cStyle = {}, hStyle = {} }: FilterProps) => {
   const options = {
     root: parent.current,
     rootMargin: "0% -50%",
@@ -30,12 +36,11 @@ export const Filter = ({ parent, handler }: FilterProps) => {
 
   return (
     <>
-      <Head item={yearOnScreen}>
+      <Head item={yearOnScreen} style={hStyle}>
         <p onClick={handleGenre}>By Genre</p>
         <p onClick={handleYear}>By Year</p>
       </Head>
-
-      <Content>
+      <Content style={cStyle}>
         <Section ref={genreRef}>
           {genreFilter.map((genre, index) => {
             return (
