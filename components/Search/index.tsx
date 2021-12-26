@@ -1,3 +1,4 @@
+import { Icon } from "../Icon";
 import { Button, Clear, Form, Input, Wrapper } from "./style";
 
 export const Search = () => {
@@ -6,9 +7,11 @@ export const Search = () => {
       <Form>
         <Input>
           <input type="text" name="search" id="search" minLength={3} />
-          <Clear />
+          <Clear>
+            <Icon icon="close-outline" />
+          </Clear>
         </Input>
-        <Button />
+        <Button>Search</Button>
       </Form>
     </Wrapper>
   );

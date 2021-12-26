@@ -41,14 +41,20 @@ export const Button = styled.div`
   border-radius: 2px;
   height: 40px;
   margin-left: 8px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 `;
 
 export const Clear = styled.div`
   width: 26px;
   height: 26px;
-  background: gray;
   position: absolute;
   top: 50%;
   right: 6px;
   transform: translate(0%, -50%);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 50%;
 `;
