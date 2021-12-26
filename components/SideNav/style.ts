@@ -19,10 +19,23 @@ export const Nav = styled(animated.div)`
   background-color: white;
   position: absolute;
   z-index: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 export const Close = styled.div`
   height: 40px;
   margin: 8px;
+  padding: 8px;
+`;
+
+export const NavLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 16px 16px;
+`;
+
+export const NavLink = styled.a`
+  margin: 8px 0;
   padding: 8px;
 `;

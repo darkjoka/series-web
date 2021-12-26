@@ -1,10 +1,12 @@
 import React from "react";
 import { Filter } from "../Filter";
 
-import { BackDrop, Close, Nav, Wrapper } from "./style";
+import { BackDrop, Close, Nav, NavLink, NavLinks, Wrapper } from "./style";
 
-import { useTransition, useSpring } from "@react-spring/web";
+import { useTransition } from "@react-spring/web";
 import { Icon } from "../Icon";
+
+import Link from "next/link";
 
 export const SideNav = ({ handler, visible }: { handler: () => void; visible: boolean }) => {
   const ref = React.useRef(null);
@@ -31,6 +33,15 @@ export const SideNav = ({ handler, visible }: { handler: () => void; visible: bo
                 <Close onClick={handler}>
                   <Icon icon="close-outline" />
                 </Close>
+                <NavLinks>
+                  <Link href="/" passHref>
+                    <NavLink onClick={handler}>Home</NavLink>
+                  </Link>
+                  <Link href="/trailers" passHref>
+                    <NavLink onClick={handler}>Trailers</NavLink>
+                  </Link>
+                </NavLinks>
+                <Filter parent={ref} cStyle={{ margin: "0 8px", height: "360px" }} />
               </Nav>
             )
         )}
