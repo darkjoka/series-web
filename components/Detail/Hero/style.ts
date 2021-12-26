@@ -1,11 +1,10 @@
+import Image from "next/image";
 import styled from "styled-components";
 import { device } from "../../../shared/constants/device";
 
 export const Wrapper = styled.div`
-  background-color: gray;
   width: 94%;
   margin: 0 auto;
-  aspect-ratio: 1067/600;
 
   @media ${device.tablet} {
     max-width: 610px;
@@ -13,4 +12,11 @@ export const Wrapper = styled.div`
   @media ${device.tabletM} {
     max-width: 810px;
   }
+`;
+
+export const Title = styled.h2``;
+
+export const HeroBg = styled(Image)`
+  aspect-ratio: 1067/600;
+  background: gray;
 `;

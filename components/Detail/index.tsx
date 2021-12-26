@@ -10,7 +10,7 @@ export const Detail = ({ description, title, hero, seasonEpisodes, genres }: Det
   const { accordion, handleAccordion } = useAccordion(seasonEpisodes.length);
   return (
     <>
-      <Hero hero={hero} />
+      <Hero hero={hero} title={title} />
       <Info description={description} genres={genres} title={title} />
       {seasonEpisodes.map((data, index) => {
         return (
