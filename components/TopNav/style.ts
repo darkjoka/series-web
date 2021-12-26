@@ -45,13 +45,11 @@ export const Logo = styled.a`
 
 export const NavLinks = styled.div`
   height: 40px;
-  width: 120px;
-  background-color: gray;
   grid-area: links;
   display: none;
 
   @media ${device.laptopM} {
-    display: block;
+    display: flex;
   }
 `;
 
@@ -75,4 +73,11 @@ export const Hamburger = styled.div`
   @media ${device.laptopM} {
     display: none;
   }
+`;
+
+export const NavLink = styled.a`
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 0 8px;
 `;
