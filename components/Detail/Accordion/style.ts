@@ -1,3 +1,4 @@
+import { animated } from "@react-spring/web";
 import styled from "styled-components";
 import { device } from "../../../shared/constants/device";
 
@@ -21,13 +22,11 @@ export const Head = styled.div`
   justify-content: space-between;
   padding: 0 16px;
   cursor: pointer;
+  align-items: center;
 `;
 
-export const Body = styled.div<{ isOpen: boolean; items: number }>`
+export const Body = styled(animated.div)`
   overflow: hidden;
-  ${({ isOpen, items }) => {
-    return isOpen ? `max-height: ${72 * items}px` : "max-height: 0";
-  }};
 `;
 
 export const Item = styled.div`
