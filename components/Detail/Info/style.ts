@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Genre = styled.div`
+export const Genre = styled.a`
   margin: 2px;
   padding: 10px;
   position: relative;

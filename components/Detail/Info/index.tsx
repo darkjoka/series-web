@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Description, Genre, GenreArea, Wrapper } from "./style";
 
 type InfoProps = {
@@ -11,7 +12,9 @@ export const Info = ({ description, genres, title }: InfoProps) => {
     <Wrapper>
       <GenreArea>
         {genres.map((genre) => (
-          <Genre key={genre}>{genre}</Genre>
+          <Link href={`/filter/${genre.toLowerCase()}`} key={genre} passHref>
+            <Genre>{genre}</Genre>
+          </Link>
         ))}
       </GenreArea>
       <Description>{description}</Description>
