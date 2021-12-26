@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { CardProps } from "../../shared/constants/types";
 import { Content, Description, Rating, Teaser, Title, Wrapper } from "./style";
 
-export const Card = ({ title, teaser, rating, imageSrc, permalink }: CardProps) => {
+export const Card = ({ title, teaser = "", rating, imageSrc, permalink }: CardProps) => {
   const router = useRouter();
   const route = `/detail/${permalink}`;
   const pushRoute = () => {
@@ -20,7 +20,7 @@ export const Card = ({ title, teaser, rating, imageSrc, permalink }: CardProps) 
         height={350}
         onClick={pushRoute}
       />
-      <Content>
+      <Content hasTeaser={teaser}>
         <Link href={route} passHref>
           <Title>{title}</Title>
         </Link>
@@ -28,7 +28,7 @@ export const Card = ({ title, teaser, rating, imageSrc, permalink }: CardProps) 
           {teaser.slice(0, 80)}
           {teaser.length > 80 ? "..." : ""}
         </Description>
-        <Rating>{(Number(rating) * 2).toFixed(1).toString()}</Rating>
+        {rating && <Rating>{(Number(rating) * 2).toFixed(1).toString()}</Rating>}
       </Content>
     </Wrapper>
   );

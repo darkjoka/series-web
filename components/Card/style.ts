@@ -29,7 +29,7 @@ export const Teaser = styled(Image)`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ hasTeaser: string }>`
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -43,6 +43,7 @@ export const Content = styled.div`
     height: 100px;
     margin-left: 0;
     z-index: 1;
+    ${({ hasTeaser }) => !hasTeaser && " height: 40px; margin-top: -28px;"}
   }
 `;
 
