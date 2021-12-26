@@ -29,8 +29,12 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     Component.getLayout ??
     ((page: ReactElement) => (
       <>
-        <TopNav handler={openSide} />
-        <SideNav handler={closeSide} visible={isOpen} />
+        <Portal selector={"#top"}>
+          <TopNav handler={openSide} />
+        </Portal>
+        <Portal selector={"#side"}>
+          <SideNav handler={closeSide} visible={isOpen} />
+        </Portal>
         <Hero />
         <Search />
         <Content>{page}</Content>
