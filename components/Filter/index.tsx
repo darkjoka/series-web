@@ -17,8 +17,8 @@ export const Filter = ({ parent, handler }: FilterProps) => {
     rootMargin: "0% -50%",
   };
 
-  const [genreRef]: [any, boolean] = useObserver(options);
-  const [yearRef, yearOnScreen]: [any, boolean] = useObserver(options);
+  const [genreRef] = useObserver(options);
+  const [yearRef, yearOnScreen] = useObserver(options);
 
   const handleGenre = (): void => {
     genreRef.current?.scrollIntoView();
