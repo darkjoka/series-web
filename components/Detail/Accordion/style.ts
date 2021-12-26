@@ -27,6 +27,8 @@ export const Head = styled.div`
 
 export const Body = styled(animated.div)`
   overflow: hidden;
+  background: radial-gradient(at top, rgba(0, 0, 0, 0.2), transparent 80%) no-repeat;
+  background-size: 100% 10px;
 `;
 
 export const Item = styled.div`
@@ -37,8 +39,26 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 16px;
 
   &:nth-last-child(1) {
     border: none;
   }
+`;
+
+export const Title = styled.div``;
+export const Size = styled.div`
+  width: 100%;
+  padding: 0 16px;
+`;
+export const DownloadLink = styled.a`
+  background-color: gray;
+  padding: 0 16px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+`;
+export const SubContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;
