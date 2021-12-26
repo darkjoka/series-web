@@ -30,11 +30,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     ((page: ReactElement) => (
       <>
         <TopNav handler={openSide} />
-        {isOpen && (
-          <Portal selector={"#side"}>
-            <SideNav handler={closeSide} visible={isOpen} />
-          </Portal>
-        )}
+        <SideNav handler={closeSide} visible={isOpen} />
         <Hero />
         <Search />
         <Content>{page}</Content>
