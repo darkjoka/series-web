@@ -6,25 +6,26 @@ type ObserverOptions = {
   threshold?: number;
 };
 
-export const useObserver = (options: ObserverOptions): [{ current: null | HTMLElement }, boolean] => {
+export const useObserver = (options: ObserverOptions): [any, boolean, IntersectionObserver] => {
   const ref: { current: null | HTMLElement } = React.useRef(null);
   const [onScreen, setOnScreen] = React.useState(false);
+  let observer = React.useRef<IntersectionObserver>();
 
   React.useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
+    observer.current = new IntersectionObserver(([entry]) => {
       setOnScreen(entry.isIntersecting);
     }, options);
 
     const elem = ref.current;
 
     if (elem) {
-      observer.observe(elem);
+      observer.current.observe(elem);
     }
     return () => {
       if (elem) {
-        observer.unobserve(elem);
+        observer.current.unobserve(elem);
       }
     };
   }, [options]);
-  return [ref, onScreen];
+  return [ref, onScreen, observer.current];
 };
