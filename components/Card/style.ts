@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
 export const Teaser = styled(Image)`
   height: 150px;
   aspect-ratio: 250/350;
+  cursor: pointer;
 
   @media ${device.tablet} {
     height: 250px;
@@ -45,7 +46,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Title = styled.p`
+export const Title = styled.a`
   margin: 0;
   font-size: 18px;
 `;
