@@ -5,7 +5,6 @@ import { device } from "../../shared/constants/device";
 export const Wrapper = styled.nav`
   height: 64px;
   width: 100%;
-  border: 2px solid gray;
   position: fixed;
   background-color: white;
   z-index: 2;
@@ -13,7 +12,6 @@ export const Wrapper = styled.nav`
 
 export const Main = styled.div`
   height: 100%;
-  background-color: lightgray;
   margin: 0 auto;
   display: grid;
   grid-template-areas: "hamburger logo theme";
@@ -36,11 +34,13 @@ export const Main = styled.div`
   }
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.a`
   height: 40px;
   width: 40px;
-  background-color: yellow;
+  cursor: pointer;
   grid-area: logo;
+  display: grid;
+  place-items: center;
 `;
 
 export const NavLinks = styled.div`
@@ -58,15 +58,19 @@ export const NavLinks = styled.div`
 export const ThemeIcon = styled.div`
   height: 40px;
   width: 40px;
-  background-color: azure;
+  cursor: pointer;
   grid-area: theme;
+  display: grid;
+  place-items: center;
 `;
 
 export const Hamburger = styled.div`
   height: 40px;
   width: 40px;
-  background-color: green;
   grid-area: hamburger;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 
   @media ${device.laptopM} {
     display: none;
