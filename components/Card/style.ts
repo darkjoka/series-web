@@ -10,12 +10,14 @@ export const Wrapper = styled.div`
   display: flex;
   width: 94%;
   margin: 8px auto;
+  box-shadow: 0 0 16px -8.2px gray;
 
   @media ${device.tablet} {
     flex-direction: column;
     width: 186px;
     margin: 8px;
     padding: 2px;
+    box-shadow: none;
   }
 `;
 
