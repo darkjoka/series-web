@@ -6,7 +6,7 @@ import { Card } from "../../components/Card";
 import { CardProps } from "../../shared/constants/types";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const response = await axios.get(`${process.env.BACKEND_HOST}/filter/${context.params.filter}`);
+  const response = await axios.get(`${process.env.BACKEND_HOST}filter/${context.params.filter}`);
   return {
     props: {
       filter: context.params.filter,
