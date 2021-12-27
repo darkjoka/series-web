@@ -20,7 +20,6 @@ export const TopNav = ({ handler, themeHandlerLight, themeHandlerDark, isLight }
   const lightTransition = useTransition(isLight, themeConfig);
   const darkTransition = useTransition(!isLight, themeConfig);
 
-  console.log(isLight);
   return (
     <Wrapper>
       <Main>
