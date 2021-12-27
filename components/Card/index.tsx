@@ -15,7 +15,7 @@ export const Card = ({ title, teaser = "", rating, imageSrc, permalink }: CardPr
     <Wrapper>
       <Teaser
         alt={title}
-        src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}/image/${imageSrc}`}
+        src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${imageSrc}`}
         width={250}
         height={350}
         onClick={pushRoute}
