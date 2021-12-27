@@ -14,7 +14,7 @@ export interface SearchCardProps {
 export interface DetailProps {
   description: string;
   genres: [string];
-  hero: string;
+  heroImage: string;
   seasonEpisodes: [
     {
       season: string;
