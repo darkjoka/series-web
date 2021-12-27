@@ -27,7 +27,7 @@ export default function Home({ info }: { info: [CardProps] }) {
   const loadData = onScreen && !loadError;
 
   const { data, error } = useSWR<[CardProps], any>(
-    loadData ? `${process.env.NEXT_PUBLIC_BACKEND_HOST}/${cursor}` : "",
+    loadData ? `${process.env.NEXT_PUBLIC_BACKEND_HOST}${cursor}` : "",
     fetcher
   );
 
