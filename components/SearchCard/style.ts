@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.a`
   border: 2px solid gray;
   padding: 20px;
   height: 30px;
