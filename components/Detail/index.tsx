@@ -6,11 +6,11 @@ import { Accordion } from "./Accordion";
 import { Hero } from "./Hero";
 import { Info } from "./Info";
 
-export const Detail = ({ description, title, hero, seasonEpisodes, genres }: DetailProps) => {
+export const Detail = ({ description, title, heroImage, seasonEpisodes, genres }: DetailProps) => {
   const { accordion, handleAccordion } = useAccordion(seasonEpisodes.length);
   return (
     <>
-      <Hero hero={hero} title={title} />
+      <Hero hero={heroImage} title={title} />
       <Info description={description} genres={genres} title={title} />
       {seasonEpisodes.map((data, index) => {
         return (

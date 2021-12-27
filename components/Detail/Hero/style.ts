@@ -18,5 +18,4 @@ export const Title = styled.h2``;
 
 export const HeroBg = styled(Image)`
   aspect-ratio: 1067/600;
-  background: gray;
 `;
