@@ -21,16 +21,19 @@ type AppPropsWithLayout = AppProps & {
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [isLight, setIsLight] = React.useState<boolean>(true);
 
   const openSide = () => setIsOpen(true);
   const closeSide = () => setIsOpen(false);
+  const light = () => setIsLight(true);
+  const dark = () => setIsLight(false);
 
   const getLayout =
     Component.getLayout ??
     ((page: ReactElement) => (
       <>
         <Portal selector={"#top"}>
-          <TopNav handler={openSide} />
+          <TopNav handler={openSide} themeHandlerLight={light} themeHandlerDark={dark} isLight={isLight} />
         </Portal>
         <Portal selector={"#side"}>
           <SideNav handler={closeSide} visible={isOpen} />
