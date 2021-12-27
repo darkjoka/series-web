@@ -6,7 +6,7 @@ import { SearchCard } from "../../components/SearchCard";
 import { SearchCardProps } from "../../shared/constants/types";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const response = await axios.get(`${process.env.BACKEND_HOST}/search/${context.params.term}`);
+  const response = await axios.get(`${process.env.BACKEND_HOST}search/${context.params.term}`);
   return {
     props: {
       term: context.params.term,
