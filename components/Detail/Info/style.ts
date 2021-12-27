@@ -40,13 +40,11 @@ export const Genre = styled.a`
 
 export const GenreArea = styled.div`
   border-radius: 2px;
-  /* border: 2px solid gray; */
   display: flex;
 `;
 
 export const Description = styled.div`
   width: 100%;
-  background-color: gray;
   margin-top: 10px;
   border-radius: 2px;
   padding: 10px 0;
