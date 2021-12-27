@@ -13,16 +13,16 @@ interface AccordionProps {
 }
 
 type Episode = {
-  epidsodeTitle: string; //TODO: correct spelling of episode on backend server
+  episodeTitle: string;
   episodeSize: string;
   episodePermalink: string;
 };
 
 export const Accordion = ({ index, value, season, episodes, handler }: AccordionProps) => {
   const transition = useTransition(value, {
-    from: { "max-height": 0, opacity: 0 },
-    enter: { "max-height": 72 * episodes.length, opacity: 1 },
-    leave: { "max-height": 0, opacity: 0 },
+    from: { maxHeight: 0, opacity: 0 },
+    enter: { maxHeight: 72 * episodes.length, opacity: 1 },
+    leave: { maxHeight: 0, opacity: 0 },
   });
 
   return (
@@ -42,10 +42,10 @@ export const Accordion = ({ index, value, season, episodes, handler }: Accordion
   );
 };
 
-const DownloadItem = ({ epidsodeTitle, episodeSize, episodePermalink }: Episode) => {
+const DownloadItem = ({ episodeTitle, episodeSize, episodePermalink }: Episode) => {
   return (
     <Item>
-      <Title>{epidsodeTitle}</Title>
+      <Title>{episodeTitle}</Title>
 
       <SubContainer>
         <Size>{episodeSize}</Size>
