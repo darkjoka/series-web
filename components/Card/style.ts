@@ -4,7 +4,6 @@ import Image from "next/image";
 import { device } from "../../shared/constants/device";
 
 export const Wrapper = styled.div`
-  /* border: 2px solid gray; */
   padding: 4px;
   border-radius: 2px;
   display: flex;
