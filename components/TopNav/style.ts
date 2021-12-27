@@ -1,3 +1,4 @@
+import { animated } from "@react-spring/web";
 import styled from "styled-components";
 
 import { device } from "../../shared/constants/device";
@@ -54,7 +55,7 @@ export const NavLinks = styled.div`
   }
 `;
 
-export const ThemeIcon = styled.div`
+export const ThemeIcon = styled(animated.div)`
   height: 40px;
   width: 40px;
   cursor: pointer;

@@ -1,9 +1,26 @@
+import { useTransition } from "@react-spring/web";
 import Link from "next/link";
 import { Icon } from "../Icon";
 import { Nav } from "../SideNav/style";
 import { Hamburger, Logo, Main, NavLink, NavLinks, ThemeIcon, Wrapper } from "./style";
 
-export const TopNav = ({ handler }: { handler: () => void }) => {
+interface TopNavProps {
+  handler: () => void;
+  themeHandlerLight: () => void;
+  themeHandlerDark: () => void;
+  isLight: boolean;
+}
+
+export const TopNav = ({ handler, themeHandlerLight, themeHandlerDark, isLight }: TopNavProps) => {
+  const themeConfig = {
+    from: { opacity: 0, x: -50, y: 20 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    leave: { opacity: 0, x: 50, y: 20 },
+  };
+  const lightTransition = useTransition(isLight, themeConfig);
+  const darkTransition = useTransition(!isLight, themeConfig);
+
+  console.log(isLight);
   return (
     <Wrapper>
       <Main>
@@ -30,9 +47,22 @@ export const TopNav = ({ handler }: { handler: () => void }) => {
             <NavLink>Romance</NavLink>
           </Link>
         </NavLinks>
-        <ThemeIcon onClick={handler}>
-          <Icon icon="moon-outline" />
-        </ThemeIcon>
+        {lightTransition(
+          (style, item) =>
+            item && (
+              <ThemeIcon style={style} onClick={themeHandlerDark}>
+                <Icon icon="moon-outline" />
+              </ThemeIcon>
+            )
+        )}
+        {darkTransition(
+          (style, item) =>
+            item && (
+              <ThemeIcon style={style} onClick={themeHandlerLight}>
+                <Icon icon="sun-outline" />
+              </ThemeIcon>
+            )
+        )}
       </Main>
     </Wrapper>
   );
