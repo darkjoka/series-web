@@ -16,7 +16,7 @@ export const Form = styled.form`
   align-items: center;
   max-width: 600px;
   width: 95%;
-  padding: 8px;
+  padding: 8px 20px;
   box-shadow: ${({ theme }) => `0px 10px ${24}px ${-4.2 / theme.shadowStrength}px ${theme.shadow}`};
 `;
 
@@ -27,13 +27,14 @@ export const Input = styled.div`
 
   input {
     color: ${({ theme }) => theme.secondaryText};
-    height: 36px;
+    height: 40px;
     width: 100%;
     outline: none;
     border: none;
     border-radius: 2px;
     padding-right: 34px;
     background-color: ${({ theme }) => theme.primaryBackground};
+    font-size: 1.1em;
   }
 `;
 

@@ -9,7 +9,7 @@ export const Wrapper = styled.nav`
   position: fixed;
   background-color: ${({ theme }) => theme.altBackground};
   z-index: 2;
-  box-shadow: 0 5px 12px -8.2px gray;
+  box-shadow: 0 5px 12px -8.2px ${({ theme }) => theme.shadow};
   color: ${({ theme }) => theme.primaryText};
 `;
 

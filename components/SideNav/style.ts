@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { animated } from "@react-spring/web";
+import { device } from "../../shared/constants/device";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -14,7 +15,7 @@ export const BackDrop = styled(animated.div)`
 `;
 
 export const Nav = styled(animated.div)`
-  width: 300px;
+  width: 70vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.altBackground};
   position: absolute;
@@ -22,6 +23,10 @@ export const Nav = styled(animated.div)`
   overflow-y: auto;
   overflow-x: hidden;
   color: ${({ theme }) => theme.primaryText};
+
+  @media ${device.tablet} {
+    width: 36vw;
+  }
 `;
 
 export const Close = styled.div`

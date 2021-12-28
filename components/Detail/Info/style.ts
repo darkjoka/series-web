@@ -24,7 +24,7 @@ export const Genre = styled.a`
     position: absolute;
     width: 40px;
     height: 10px;
-    background-color: lightgray;
+    background-color: ${({ theme }) => theme.brand};
     bottom: 8px;
     left: 6px;
     z-index: -1;
