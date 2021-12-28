@@ -7,12 +7,15 @@ import { Card } from "../components/Card";
 import { CardProps } from "../shared/constants/types";
 import { useObserver } from "../shared/hooks/useObserver";
 
+const dayInSeconds = 60 * 60 * 24;
+
 export const getStaticProps: GetStaticProps = async () => {
   const response = await axios.get(process.env.BACKEND_HOST);
   return {
     props: {
       info: response.data.data,
     },
+    revalidate: dayInSeconds,
   };
 };
 
