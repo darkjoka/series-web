@@ -44,6 +44,9 @@ export const Content = styled.div`
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 export const Section = styled.div`
