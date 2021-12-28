@@ -35,7 +35,7 @@ export const Item = styled.div`
   height: 64px;
   margin: 8px 0;
 
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid ${({ theme }) => theme.primaryBackground};
   display: flex;
   align-items: center;
   justify-content: space-between;
