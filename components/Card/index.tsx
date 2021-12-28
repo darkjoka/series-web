@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -13,13 +14,15 @@ export const Card = ({ title, teaser = "", rating, imageSrc, permalink }: CardPr
 
   return (
     <Wrapper>
-      <Teaser
-        alt={title}
-        src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${imageSrc}`}
-        width={250}
-        height={350}
-        onClick={pushRoute}
-      />
+      <Teaser>
+        <Image
+          alt={title}
+          src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${imageSrc}`}
+          width={250}
+          height={350}
+          onClick={pushRoute}
+        />
+      </Teaser>
       <Content hasTeaser={teaser}>
         <Link href={route} passHref>
           <Title>{title}</Title>

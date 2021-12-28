@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Image from "next/image";
 
 import { device } from "../../shared/constants/device";
 
@@ -20,11 +19,11 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Teaser = styled(Image)`
-  height: 150px;
-  width: 107px;
+export const Teaser = styled.div`
+  min-height: 150px;
+  max-height: 150px;
   aspect-ratio: 250/350;
-  cursor: pointer;
+  background-color: ${({ theme }) => theme.tertiaryBackground};
 
   @media ${device.tablet} {
     height: 250px;
@@ -35,16 +34,16 @@ export const Content = styled.div<{ hasTeaser: string }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 4px;
   margin-left: 4px;
 
   @media ${device.tablet} {
-    margin-top: -68px;
+    margin-top: 62px;
     background-color: ${({ theme }) => theme.altBackground};
     height: 100px;
     margin-left: 0;
+    margin-bottom: 4px;
     z-index: 1;
-    ${({ hasTeaser }) => !hasTeaser && " height: 40px; margin-top: -28px;"}
+    ${({ hasTeaser }) => !hasTeaser && " height: 40px; margin-top: 68px;"}
   }
 `;
 
