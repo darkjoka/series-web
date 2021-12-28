@@ -16,11 +16,12 @@ export const BackDrop = styled(animated.div)`
 export const Nav = styled(animated.div)`
   width: 300px;
   height: 100vh;
-  background-color: white;
+  background-color: ${({ theme }) => theme.altBackground};
   position: absolute;
   z-index: 1;
   overflow-y: auto;
   overflow-x: hidden;
+  color: ${({ theme }) => theme.primaryText};
 `;
 
 export const Close = styled.div`

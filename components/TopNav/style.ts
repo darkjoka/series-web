@@ -7,9 +7,10 @@ export const Wrapper = styled.nav`
   height: 64px;
   width: 100%;
   position: fixed;
-  background-color: white;
+  background-color: ${({ theme }) => theme.altBackground};
   z-index: 2;
   box-shadow: 0 5px 12px -8.2px gray;
+  color: ${({ theme }) => theme.primaryText};
 `;
 
 export const Main = styled.div`

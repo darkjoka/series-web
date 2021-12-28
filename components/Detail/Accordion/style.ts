@@ -5,7 +5,7 @@ import { device } from "../../../shared/constants/device";
 export const Wrapper = styled.div`
   width: 94%;
   margin: 8px auto;
-  border: 2px solid gray;
+  box-shadow: ${({ theme }) => `0px 10px ${24}px ${-4.2 / theme.shadowStrength}px ${theme.shadow}`};
   @media ${device.tablet} {
     max-width: 610px;
   }
@@ -52,7 +52,7 @@ export const Size = styled.div`
   padding: 0 16px;
 `;
 export const DownloadLink = styled.a`
-  background-color: gray;
+  background-color: ${({ theme }) => theme.tertiaryBackground};
   padding: 0 16px;
   height: 44px;
   display: flex;

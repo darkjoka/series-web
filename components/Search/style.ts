@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../theme/base";
 
 export const Wrapper = styled.div`
   display: grid;
@@ -7,8 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Form = styled.form`
-  background-color: lightgray;
-  border: 2px solid gray;
+  background-color: ${({ theme }) => theme.altBackground};
   border-radius: 2px;
   height: 78px;
   display: flex;
@@ -17,27 +17,30 @@ export const Form = styled.form`
   max-width: 600px;
   width: 95%;
   padding: 8px;
+  box-shadow: ${({ theme }) => `0px 10px ${24}px ${-4.2 / theme.shadowStrength}px ${theme.shadow}`};
 `;
 
 export const Input = styled.div`
   width: inherit;
   position: relative;
-  border: 2px solid gray;
   border-radius: 2px;
 
   input {
+    color: ${({ theme }) => theme.secondaryText};
     height: 36px;
     width: 100%;
     outline: none;
     border: none;
     border-radius: 2px;
     padding-right: 34px;
+    background-color: ${({ theme }) => theme.primaryBackground};
   }
 `;
 
 export const Button = styled.div`
   width: 140px;
-  background-color: gray;
+  background-color: ${({ theme }) => theme.brand};
+  color: ${({ theme }) => theme.secondaryText}
   border-radius: 2px;
   height: 40px;
   margin-left: 8px;

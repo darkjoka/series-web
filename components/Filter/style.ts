@@ -20,8 +20,7 @@ export const Head = styled.div<{ item: boolean }>`
     width: 30%;
     height: 10px;
     z-index: -1;
-    /* background: linear-gradient(to right, ${({ theme: { theme } }) => theme.brand} 50%, transparent 50%); */
-    background-color: lightgray;
+    background-color: ${({ theme }) => theme.brand};
     bottom: 15px;
     transform: translateX(
       ${({ item }) => {
@@ -65,7 +64,7 @@ export const Section = styled.div`
 export const FilterItem = styled.div`
   display: grid;
   place-items: center;
-  background-color: lightgray;
+  background-color: ${({ theme }) => theme.secondaryBackground};
   width: 95%;
   border-radius: 4px;
   height: 30px;
@@ -73,7 +72,7 @@ export const FilterItem = styled.div`
 
   a {
     text-decoration: none;
-    color: gray;
+    color: ${({ theme }) => theme.primaryText};
     width: inherit;
     height: inherit;
     display: grid;
