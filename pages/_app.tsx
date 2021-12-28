@@ -12,7 +12,6 @@ import { Search } from "../components/Search";
 import { Content } from "../components/Content";
 import { SideNav } from "../components/SideNav";
 import { Portal } from "../components/Portal";
-import { Wrapper } from "../components/Wrapper";
 import useStore from "../store/useStore";
 
 type NextPageWithLayout = NextPage & {
@@ -43,6 +42,18 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     toggleDark();
   };
 
+  React.useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.background = theme.altBackground;
+    body.style.color = theme.primaryText;
+
+    if (isOpen) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "auto";
+    }
+  });
+
   const getLayout =
     Component.getLayout ??
     ((page: ReactElement) => (
@@ -53,17 +64,15 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         <Portal selector={"#side"}>
           <SideNav handler={closeSide} visible={isOpen} />
         </Portal>
-        <Wrapper>
-          <Hero />
-          <Search />
-          <Content>{page}</Content>
-        </Wrapper>
+        <Hero />
+        <Search />
+        <Content>{page}</Content>
       </ThemeProvider>
     ));
 
   return getLayout(
     <ThemeProvider theme={theme}>
-      <NextNProgress color={theme.brand} options={{ showSpinner: false }} />
+      <NextNProgress color={theme.brand} options={{ showSpinner: false }} height={5} />
       <Component {...pageProps} />
     </ThemeProvider>
   );
