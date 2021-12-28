@@ -27,11 +27,11 @@ export const Filter = ({ parent, handler, cStyle = {}, hStyle = {} }: FilterProp
   const [yearRef, yearOnScreen] = useObserver(options);
 
   const handleGenre = (): void => {
-    genreRef.current?.scrollIntoView();
+    genreRef.current?.scrollIntoView(false);
   };
 
   const handleYear = (): void => {
-    yearRef.current?.scrollIntoView();
+    yearRef.current?.scrollIntoView(false);
   };
 
   return (

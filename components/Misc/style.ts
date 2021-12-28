@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
 export const Main = styled.div<{ stay: boolean }>`
   width: 200px;
-  position: ${({ stay }) => (stay ? "fixed" : "")};
+  position: ${({ stay }) => (stay ? "fixed" : "relative")};
   top: 28px;
 `;
 
