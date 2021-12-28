@@ -1,7 +1,7 @@
 import { Brand, ThemeProperties, ThemeState } from "./types";
 
 export const defaultBrand: Brand = {
-  hue: 160,
+  hue: 200,
   saturation: 100,
   lightness: 50,
 };
