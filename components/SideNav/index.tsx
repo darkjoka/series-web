@@ -41,7 +41,7 @@ export const SideNav = ({ handler, visible }: { handler: () => void; visible: bo
                     <NavLink onClick={handler}>Trailers</NavLink>
                   </Link>
                 </NavLinks>
-                <Filter parent={ref} cStyle={{ margin: "0 8px", height: "360px" }} />
+                <Filter parent={ref} cStyle={{ margin: "0 8px", height: "360px" }} handler={handler} />
               </Nav>
             )
         )}
