@@ -4,6 +4,8 @@ import Head from "next/head";
 import React from "react";
 import useSWR from "swr";
 import { Card } from "../components/Card";
+import { Loader } from "../components/Loader";
+import { Meta } from "../components/Meta";
 import { CardProps } from "../shared/constants/types";
 import { useObserver } from "../shared/hooks/useObserver";
 
@@ -27,6 +29,8 @@ export default function Home({ info }: { info: [CardProps] }) {
   const [series, setSeries]: any = React.useState(info);
   const [loadError, setLoadError] = React.useState(false);
 
+  const metaImage = info[Math.floor(Math.random() * info.length)].imageSrc;
+
   const loadData = onScreen && !loadError;
 
   const { data, error } = useSWR<[CardProps], any>(
@@ -46,23 +50,16 @@ export default function Home({ info }: { info: [CardProps] }) {
 
   return (
     <>
-      <Head>
-        <title>series App</title>
-      </Head>
+      <Meta
+        title="Series App"
+        description="New Series with high quality and low size 150 mb in HD and 480p ,direct download with fastest speed ,newest tv series update."
+        image={metaImage}
+        keywords="drama, action, action series, history series, history, thriller, thriller series, comedy, comedy series"
+      />
       {series.map((info: CardProps) => (
         <Card key={info.title} {...info} />
       ))}
-      {loadError ? (
-        <div
-          onClick={() => {
-            setLoadError(false);
-          }}
-        >
-          An Error occurred. Click to try again
-        </div>
-      ) : (
-        <div ref={ref}>Loading...</div>
-      )}
+      <Loader error={loadError} handler={() => setLoadError(false)} ref={ref} />
     </>
   );
 }
