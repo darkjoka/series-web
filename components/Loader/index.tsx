@@ -8,7 +8,7 @@ export const Loader = React.forwardRef(({ error, handler }: { error: boolean; ha
     <Wrapper>
       <Helper ref={ref} />
       <Text>{loaderText}</Text>
-      <Button onClick={handler}>Click to try again</Button>
+      {error && <Button onClick={handler}>Click to try again</Button>}
     </Wrapper>
   );
 });
