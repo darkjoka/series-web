@@ -1,16 +1,21 @@
 import React from "react";
+import { useLoader } from "../../shared/hooks/useLoader";
+import { useObserver } from "../../shared/hooks/useObserver";
 
 import { Button, Helper, Text, Wrapper } from "./styles";
 
-export const Loader = React.forwardRef(({ error, handler }: { error: boolean; handler: () => void }, ref: any) => {
-  const loaderText = error ? "An error occurred" : "Loading...";
+export const Loader = ({ url, handler }: { url: string; handler: (data: any) => void }) => {
+  const [ref, onScreen] = useObserver({});
+  const { loadError, resetHandler } = useLoader(url, onScreen, handler);
+  const loaderText = loadError ? "An error occurred" : "Loading...";
+
   return (
     <Wrapper>
       <Helper ref={ref} />
       <Text>{loaderText}</Text>
-      {error && <Button onClick={handler}>Click to try again</Button>}
+      {loadError && <Button onClick={resetHandler}>Click to try again</Button>}
     </Wrapper>
   );
-});
+};
 
 Loader.displayName = "Loader";

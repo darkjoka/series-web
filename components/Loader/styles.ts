@@ -20,6 +20,7 @@ export const Button = styled.div`
   padding: 8px;
   border-radius: 4px;
   margin-bottom: 4px;
+  cursor: pointer;
 `;
 
 export const Text = styled.p``;
