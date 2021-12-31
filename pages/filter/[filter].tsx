@@ -1,8 +1,9 @@
 import axios from "axios";
 import { GetServerSideProps } from "next";
-import Head from "next/head";
+import React from "react";
 
 import { Card } from "../../components/Card";
+import { Loader } from "../../components/Loader";
 import { Meta } from "../../components/Meta";
 import { CardProps } from "../../shared/constants/types";
 
@@ -19,6 +20,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 export default function Filter({ filter, data }: { data: [CardProps]; filter: string }) {
   const metaImage = data[Math.floor(Math.random() * data.length)].imageSrc;
 
+  const [cursor, setCursor] = React.useState(data.length);
+  const [series, setSeries] = React.useState<any>(data);
+
+  const updater = (data) => {
+    if (data) {
+      const newSeries = series.concat(data);
+      setCursor(newSeries.length);
+      setSeries(newSeries);
+    }
+  };
+
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}filter/${filter}/${cursor}`;
+
   return (
     <>
       <Meta
@@ -28,9 +42,10 @@ export default function Filter({ filter, data }: { data: [CardProps]; filter: st
         image={metaImage}
       />
 
-      {data.map((info) => (
+      {series.map((info) => (
         <Card key={info.title} {...info} />
       ))}
+      <Loader url={url} handler={updater} />
     </>
   );
 }
