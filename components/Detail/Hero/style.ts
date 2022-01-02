@@ -14,7 +14,9 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Title = styled.h2``;
+export const Title = styled.h1`
+  margin-top: 0;
+`;
 
 export const HeroBg = styled(Image)`
   aspect-ratio: 1067/600;
