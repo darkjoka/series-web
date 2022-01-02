@@ -6,26 +6,25 @@ import { Card } from "../components/Card";
 import { Loader } from "../components/Loader";
 import { Meta } from "../components/Meta";
 import { CardProps } from "../shared/constants/types";
-import { useLoader } from "../shared/hooks/useLoader";
-import { useObserver } from "../shared/hooks/useObserver";
 
 const dayInSeconds = 60 * 60 * 24;
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await axios.get(process.env.BACKEND_HOST);
+  const info: CardProps[] = response.data.data;
+  const metaImage = info[Math.floor(Math.random() * info.length)].imageSrc;
   return {
     props: {
-      info: response.data.data,
+      info,
+      metaImage,
     },
     revalidate: dayInSeconds,
   };
 };
 
-export default function Home({ info }: { info: [CardProps] }) {
+export default function Home({ info, metaImage }: { info: [CardProps]; metaImage: string }) {
   const [cursor, setCursor]: any = React.useState(info.length);
   const [series, setSeries]: any = React.useState(info);
-
-  const metaImage = info[Math.floor(Math.random() * info.length)].imageSrc;
 
   const updater = (data) => {
     if (data) {
