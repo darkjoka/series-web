@@ -11,6 +11,13 @@ export interface SearchCardProps {
   permalink: string;
 }
 
+export interface TrailerProps {
+  title: string;
+  permalink: string;
+  thumbnailSrc: string;
+  videoSrc: string;
+  production: string;
+}
 export interface DetailProps {
   description: string;
   genres: [string];
