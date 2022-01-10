@@ -18,15 +18,5 @@ export const NavWrapper = styled.div`
 export const Nav = styled.div`
   display: flex;
   cursor: pointer;
-
-  p {
-    margin: 0;
-    font-size: 1.1em;
-  }
-  &:hover svg {
-    transform: translateX(-10px);
-    transition: transform 0.5s ease;
-  }
+  padding: 8px;
 `;
-
-export const IconWrapper = styled.div``;
