@@ -1,7 +1,7 @@
-import { useSpring, useTransition } from "@react-spring/web";
+import { useTransition } from "@react-spring/web";
 import Link from "next/link";
-import useMeasure from "react-use-measure";
-import { Icon } from "../../Icon";
+import { Download } from "react-feather";
+
 import { Body, DownloadLink, Head, Item, Size, SubContainer, Title, Wrapper } from "./style";
 
 interface AccordionProps {
@@ -51,7 +51,7 @@ const DownloadItem = ({ episodeTitle, episodeSize, episodePermalink }: Episode) 
         <Size>{episodeSize}</Size>
         <Link href={episodePermalink} passHref replace>
           <DownloadLink>
-            <Icon icon={"download-outline"} /> Download
+            <Download size={18} /> Download
           </DownloadLink>
         </Link>
       </SubContainer>
