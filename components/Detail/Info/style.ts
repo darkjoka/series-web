@@ -41,6 +41,7 @@ export const Genre = styled.a`
 export const GenreArea = styled.div`
   border-radius: 2px;
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Description = styled.div`
