@@ -1,14 +1,13 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { XCircle } from "react-feather";
-import { Icon } from "../Icon";
 import { Button, Clear, Form, Input, Wrapper } from "./style";
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = React.useState("");
   const router = useRouter();
 
-  const handleSearch = (event) => setSearchTerm(event.target.value);
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value);
   const handleClear = () => setSearchTerm("");
   const handleSubmit = (event) => {
     event.preventDefault();
