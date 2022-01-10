@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import React from "react";
+import { X } from "react-feather";
 
 import { DetailProps } from "../../shared/constants/types";
 import { useAccordion } from "../../shared/hooks/useAccordion";
-import { Icon } from "../Icon";
 import { Accordion } from "./Accordion";
 import { Hero } from "./Hero";
 import { Info } from "./Info";
-import { IconWrapper, Nav, NavWrapper } from "./styles";
+import { Nav, NavWrapper } from "./styles";
 
 export const Detail = ({ description, title, heroImage, seasonEpisodes, genres }: DetailProps) => {
   const { accordion, handleAccordion } = useAccordion(seasonEpisodes.length);
@@ -17,9 +17,7 @@ export const Detail = ({ description, title, heroImage, seasonEpisodes, genres }
     <>
       <NavWrapper>
         <Nav onClick={() => router.back()}>
-          <Icon icon="arrow-back-outline" />
-
-          <p>Go back</p>
+          <X />
         </Nav>
       </NavWrapper>
       <Hero hero={heroImage} title={title} />
