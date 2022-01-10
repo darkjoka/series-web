@@ -1,7 +1,6 @@
 import { useTransition } from "@react-spring/web";
 import Link from "next/link";
 import { Menu, Moon, Sun } from "react-feather";
-import { Icon } from "../Icon";
 import { Hamburger, Logo, Main, NavLink, NavLinks, ThemeIcon, Wrapper } from "./style";
 
 interface TopNavProps {
