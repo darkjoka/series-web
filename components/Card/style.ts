@@ -21,7 +21,6 @@ export const Wrapper = styled.div`
 
 export const Teaser = styled.div`
   min-height: 150px;
-  max-height: 150px;
   aspect-ratio: 250/350;
   background-color: ${({ theme }) => theme.tertiaryBackground};
 
@@ -37,9 +36,9 @@ export const Content = styled.div<{ hasTeaser: string }>`
   margin-left: 4px;
 
   @media ${device.tablet} {
-    margin-top: 62px;
+    margin-top: -52px;
     background-color: ${({ theme }) => theme.altBackground};
-    height: 100px;
+    height: 120px;
     margin-left: 0;
     margin-bottom: 4px;
     z-index: 1;
@@ -50,20 +49,26 @@ export const Content = styled.div<{ hasTeaser: string }>`
 export const Title = styled.a`
   margin: 0;
   font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 600;
 `;
 
 export const Description = styled.p`
   margin: 0;
+  overflow: hidden;
 
   @media ${device.tablet} {
     font-size: 82%;
-    height: 50px;
+    height: 60px;
   }
 `;
 
 export const Rating = styled.p`
   text-align: right;
-  color: ${({ theme }) => theme.brand};
+  color: ${({ theme }) => theme.primaryText};
   margin: 0;
   font-size: 22px;
+  font-weight: 500;
 `;
