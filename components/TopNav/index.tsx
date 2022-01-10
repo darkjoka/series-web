@@ -1,7 +1,7 @@
 import { useTransition } from "@react-spring/web";
 import Link from "next/link";
+import { Menu, Moon, Sun } from "react-feather";
 import { Icon } from "../Icon";
-import { Nav } from "../SideNav/style";
 import { Hamburger, Logo, Main, NavLink, NavLinks, ThemeIcon, Wrapper } from "./style";
 
 interface TopNavProps {
@@ -24,7 +24,7 @@ export const TopNav = ({ handler, themeHandlerLight, themeHandlerDark, isLight }
     <Wrapper>
       <Main>
         <Hamburger onClick={handler}>
-          <Icon icon="menu-outline" />
+          <Menu />
         </Hamburger>
         <Link href="/" passHref>
           <Logo>LOGO</Logo>
@@ -50,7 +50,7 @@ export const TopNav = ({ handler, themeHandlerLight, themeHandlerDark, isLight }
           (style, item) =>
             item && (
               <ThemeIcon style={style} onClick={themeHandlerDark}>
-                <Icon icon="moon-outline" />
+                <Moon />
               </ThemeIcon>
             )
         )}
@@ -58,7 +58,7 @@ export const TopNav = ({ handler, themeHandlerLight, themeHandlerDark, isLight }
           (style, item) =>
             item && (
               <ThemeIcon style={style} onClick={themeHandlerLight}>
-                <Icon icon="sun-outline" />
+                <Sun />
               </ThemeIcon>
             )
         )}
