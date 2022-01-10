@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
+import { XCircle } from "react-feather";
 import { Icon } from "../Icon";
 import { Button, Clear, Form, Input, Wrapper } from "./style";
 
@@ -24,7 +25,7 @@ export const Search = () => {
           <input type="text" name="search" id="search" minLength={3} value={searchTerm} onChange={handleSearch} />
           {searchTerm && (
             <Clear onClick={handleClear}>
-              <Icon icon="close-outline" />
+              <XCircle />
             </Clear>
           )}
         </Input>
