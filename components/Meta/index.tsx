@@ -14,6 +14,7 @@ export const Meta = ({
   image = `${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${image}`;
   return (
     <Head>
+      <html lang="en" />
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta
