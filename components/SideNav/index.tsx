@@ -1,12 +1,10 @@
 import React from "react";
-import { Filter } from "../Filter";
-
-import { BackDrop, Close, Nav, NavLink, NavLinks, Wrapper } from "./style";
-
 import { useTransition } from "@react-spring/web";
-import { Icon } from "../Icon";
-
+import { X } from "react-feather";
 import Link from "next/link";
+
+import { Filter } from "../Filter";
+import { BackDrop, Close, Nav, NavLink, NavLinks, Wrapper } from "./style";
 
 export const SideNav = ({ handler, visible }: { handler: () => void; visible: boolean }) => {
   const ref = React.useRef(null);
@@ -31,7 +29,7 @@ export const SideNav = ({ handler, visible }: { handler: () => void; visible: bo
             item && (
               <Nav style={style} ref={ref}>
                 <Close onClick={handler}>
-                  <Icon icon="close-outline" />
+                  <X />
                 </Close>
                 <NavLinks>
                   <Link href="/" passHref>
