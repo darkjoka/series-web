@@ -18,6 +18,10 @@ export const Title = styled.h1`
   margin-top: 0;
 `;
 
+export const HeroContainer = styled.div`
+  aspect-ratio: 1067/600;
+  background: ${({ theme }) => theme.tertiaryBackground};
+`;
 export const HeroBg = styled(Image)`
   aspect-ratio: 1067/600;
 `;
