@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../theme/base";
 
 export const Wrapper = styled.div`
   display: grid;

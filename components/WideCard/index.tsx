@@ -3,7 +3,7 @@ import Link from "next/link";
 import { TrailerProps } from "../../shared/constants/types";
 import { Content, Teaser, Title, Wrapper } from "./styles";
 
-export const WideCard = ({ title, thumbnailSrc, videoSrc, permalink }: TrailerProps) => {
+export const WideCard = ({ title, thumbnailSrc, permalink }: TrailerProps) => {
   return (
     <Wrapper>
       <Teaser>
