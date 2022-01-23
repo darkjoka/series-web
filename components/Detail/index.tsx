@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { X } from "react-feather";
 
 import { DetailProps } from "../../shared/constants/types";
@@ -13,10 +13,24 @@ export const Detail = ({ description, title, heroImage, seasonEpisodes, genres }
   const { accordion, handleAccordion } = useAccordion(seasonEpisodes.length);
 
   const router = useRouter();
+  let referrer = useRef<string>("");
+  useEffect(() => {
+    referrer.current = document.referrer;
+  }, []);
+
+  const handleBack = () => {
+    console.log(referrer);
+    if (!referrer.current) {
+      router.push("/");
+      return;
+    }
+    router.back();
+  };
+
   return (
     <>
       <NavWrapper>
-        <Nav onClick={() => router.back()}>
+        <Nav onClick={handleBack}>
           <X />
         </Nav>
       </NavWrapper>
