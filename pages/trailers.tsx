@@ -1,5 +1,7 @@
 import axios from "axios";
 import { GetStaticProps } from "next";
+
+import { Heading } from "../components/Heading";
 import { Meta } from "../components/Meta";
 import { WideCard } from "../components/WideCard";
 import { TrailerProps } from "../shared/constants/types";
@@ -44,7 +46,7 @@ export default function App({
         description="Watch trailers of the latest tv series"
         keywords={keywords}
       />
-
+      <Heading>Trailers</Heading>
       {data.map((info) => (
         <WideCard key={info.permalink} {...info} />
       ))}
