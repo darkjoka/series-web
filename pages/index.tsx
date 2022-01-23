@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import React from "react";
 
 import { Card } from "../components/Card";
+import { Heading } from "../components/Heading";
 import { Loader } from "../components/Loader";
 import { Meta } from "../components/Meta";
 import { CardProps } from "../shared/constants/types";
@@ -44,6 +45,7 @@ export default function Home({ info, metaImage }: { info: [CardProps]; metaImage
         image={metaImage}
         keywords="drama, action, action series, history series, history, thriller, thriller series, comedy, comedy series"
       />
+      <Heading>Tv Series</Heading>
       {series.map((info: CardProps) => (
         <Card key={info.title} {...info} />
       ))}
