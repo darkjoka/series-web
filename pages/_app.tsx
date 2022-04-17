@@ -25,12 +25,20 @@ type AppPropsWithLayout = AppProps & {
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [isLight, setIsLight] = React.useState<boolean>(true);
+  const [anyDialog, setAnyDialog] = React.useState<boolean>(false);
 
   const [toggleLight, toggleDark] = useStore((state) => [state.toggleLight, state.toggleDark]);
   const theme = useStore((state) => state.theme);
 
-  const openSide = () => setIsOpen(true);
-  const closeSide = () => setIsOpen(false);
+  const openSide = () => {
+    setIsOpen(true);
+    setAnyDialog(true);
+  };
+
+  const closeSide = () => {
+    setIsOpen(false);
+    setAnyDialog(false);
+  };
 
   const light = () => {
     setIsLight(true);
@@ -47,7 +55,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     body.style.background = theme.altBackground;
     body.style.color = theme.primaryText;
 
-    if (isOpen) {
+    if (anyDialog) {
       body.style.overflow = "hidden";
     } else {
       body.style.overflow = "auto";
@@ -73,7 +81,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   return getLayout(
     <ThemeProvider theme={theme}>
       <NextNProgress color={theme.brand} options={{ showSpinner: false }} height={5} />
-      <Component {...pageProps} />
+      <Component {...pageProps} setDialog={setAnyDialog} />
     </ThemeProvider>
   );
 };
