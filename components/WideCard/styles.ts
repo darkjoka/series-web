@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 export const Teaser = styled.div`
   width: 300px;
   margin: auto;
+  background-color: ${({ theme }) => theme.secondaryBackground};
 `;
 export const Content = styled.div`
   width: 300px;
