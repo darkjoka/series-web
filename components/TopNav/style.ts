@@ -45,6 +45,8 @@ export const Logo = styled.a`
   display: grid;
   place-items: center;
   color: ${({ theme }) => theme.primaryText};
+  font-weight: bold;
+  font-size: 2em;
 `;
 
 export const NavLinks = styled.div`
