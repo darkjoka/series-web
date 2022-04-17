@@ -20,7 +20,7 @@ export const Dialog = ({ isOpen, trailer, close }: DialogProps) => {
       {transition(
         (styles, item) =>
           item && (
-            <Wrapper style={{ opacity: styles.opacity, pointerEvents: styles.pointerEvents }}>
+            <Wrapper style={{ opacity: styles.opacity, pointerEvents: (styles as any).pointerEvents }}>
               <BackDrop onClick={close} />
               <Content />
             </Wrapper>
