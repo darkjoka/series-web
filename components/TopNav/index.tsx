@@ -32,16 +32,16 @@ export const TopNav = ({ handler, themeHandlerLight, themeHandlerDark, isLight }
           <Link href="/" passHref>
             <NavLink>Home</NavLink>
           </Link>
-          <Link href="/trailers" passHref>
+          <Link href="/trailers" passHref replace>
             <NavLink>Trailers</NavLink>
           </Link>
-          <Link href="filter/action" passHref>
+          <Link href="/filter/action" passHref replace>
             <NavLink>Action</NavLink>
           </Link>
-          <Link href="filter/fantasy" passHref>
+          <Link href="/filter/fantasy" passHref replace>
             <NavLink>Fantasy</NavLink>
           </Link>
-          <Link href="filter/romance" passHref>
+          <Link href="/filter/romance" passHref>
             <NavLink>Romance</NavLink>
           </Link>
         </NavLinks>

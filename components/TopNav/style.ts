@@ -83,4 +83,5 @@ export const NavLink = styled.a`
   display: grid;
   place-items: center;
   padding: 0 8px;
+  color: ${({ theme }) => theme.primaryText};
 `;
