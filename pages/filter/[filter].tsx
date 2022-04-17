@@ -24,6 +24,11 @@ export default function Filter({ filter, data }: { data: [CardProps]; filter: st
   const [cursor, setCursor] = React.useState(data.length);
   const [series, setSeries] = React.useState<any>(data);
 
+  React.useEffect(() => {
+    setCursor(data.length);
+    setSeries(data);
+  }, [data]);
+
   const updater = (data) => {
     if (data) {
       const newSeries = series.concat(data);
