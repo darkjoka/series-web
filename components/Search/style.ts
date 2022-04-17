@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../theme/base";
 
 export const Wrapper = styled.div`
   display: grid;
@@ -33,6 +32,7 @@ export const Input = styled.div`
     border: none;
     border-radius: 2px;
     padding-right: 34px;
+    padding-left: 10px;
     background-color: ${({ theme }) => theme.primaryBackground};
     font-size: 1.1em;
   }
@@ -61,4 +61,8 @@ export const Clear = styled.div`
   place-items: center;
   cursor: pointer;
   border-radius: 50%;
+
+  svg {
+    stroke: ${({ theme }) => theme.secondaryText};
+  }
 `;
