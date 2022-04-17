@@ -7,17 +7,18 @@ import { Meta } from "../../components/Meta";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const response = await axios.get(`${process.env.BACKEND_HOST}detail/${context.params.slug}`);
+  console.log(context.req.headers.referer);
 
   return {
-    props: { data: response.data.data },
+    props: { data: response.data.data, prev: context.req.headers.referer },
   };
 };
 
-const Page = ({ data }) => {
+const Page = ({ data, prev }) => {
   return (
     <>
       <Meta description={data.description} title={`Download ${data.title}`} image={data.heroImage} />
-      <Detail {...data} />
+      <Detail {...data} prev={prev} />
     </>
   );
 };

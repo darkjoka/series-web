@@ -36,4 +36,5 @@ export interface DetailProps {
     }
   ];
   title: string;
+  prev?: string;
 }

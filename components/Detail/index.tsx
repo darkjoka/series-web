@@ -9,13 +9,14 @@ import { Hero } from "./Hero";
 import { Info } from "./Info";
 import { Nav, NavWrapper } from "./styles";
 
-export const Detail = ({ description, title, heroImage, seasonEpisodes, genres }: DetailProps) => {
+export const Detail = ({ description, title, heroImage, seasonEpisodes, genres, prev }: DetailProps) => {
   const { accordion, handleAccordion } = useAccordion(seasonEpisodes.length);
 
   const router = useRouter();
   let referrer = useRef<string>("");
   useEffect(() => {
-    referrer.current = document.referrer;
+    referrer.current = prev;
+    console.log(document.referrer);
   }, []);
 
   const handleBack = () => {
