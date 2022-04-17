@@ -87,4 +87,5 @@ export const NavLink = styled.a`
   place-items: center;
   padding: 0 8px;
   color: ${({ theme }) => theme.primaryText};
+  font-weight: 700;
 `;

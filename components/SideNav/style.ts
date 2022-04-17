@@ -44,4 +44,5 @@ export const NavLinks = styled.div`
 export const NavLink = styled.a`
   margin: 8px 0;
   padding: 8px;
+  font-weight: 700;
 `;

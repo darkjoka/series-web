@@ -37,8 +37,12 @@ export const Filter = ({ parent, handler, cStyle = {}, hStyle = {} }: FilterProp
   return (
     <>
       <Head item={yearOnScreen} style={hStyle}>
-        <p onClick={handleGenre}>By Genre</p>
-        <p onClick={handleYear}>By Year</p>
+        <p style={{ fontWeight: 500 }} onClick={handleGenre}>
+          By Genre
+        </p>
+        <p style={{ fontWeight: 500 }} onClick={handleYear}>
+          By Year
+        </p>
       </Head>
       <Content style={cStyle}>
         <Section ref={genreRef}>
