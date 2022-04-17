@@ -19,7 +19,6 @@ export const Detail = ({ description, title, heroImage, seasonEpisodes, genres }
   }, []);
 
   const handleBack = () => {
-    console.log(referrer);
     if (!referrer.current) {
       router.push("/");
       return;
