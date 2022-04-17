@@ -44,6 +44,7 @@ export const Logo = styled.a`
   grid-area: logo;
   display: grid;
   place-items: center;
+  color: ${({ theme }) => theme.primaryText};
 `;
 
 export const NavLinks = styled.div`

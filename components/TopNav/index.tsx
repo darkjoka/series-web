@@ -26,7 +26,7 @@ export const TopNav = ({ handler, themeHandlerLight, themeHandlerDark, isLight }
           <Menu />
         </Hamburger>
         <Link href="/" passHref>
-          <Logo>LOGO</Logo>
+          <Logo>SeriesB</Logo>
         </Link>
         <NavLinks>
           <Link href="/" passHref>
