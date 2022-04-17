@@ -3,6 +3,7 @@ import { GetServerSideProps } from "next";
 import React from "react";
 
 import { Card } from "../../components/Card";
+import { Heading } from "../../components/Heading";
 import { Loader } from "../../components/Loader";
 import { Meta } from "../../components/Meta";
 import { CardProps } from "../../shared/constants/types";
@@ -32,6 +33,11 @@ export default function Filter({ filter, data }: { data: [CardProps]; filter: st
   };
 
   const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}filter/${filter}/${cursor}`;
+  const filterIsaYear = filter.toLowerCase() === filter.toUpperCase();
+  let headingString = `${filter.charAt(0).toUpperCase() + filter.slice(1)} Tv Series`;
+  if (filterIsaYear) {
+    headingString = `Tv Series started in ${filter}`;
+  }
 
   return (
     <>
@@ -41,7 +47,7 @@ export default function Filter({ filter, data }: { data: [CardProps]; filter: st
         keywords={`${filter}, ${filter} series`}
         image={metaImage}
       />
-
+      <Heading>{headingString}</Heading>
       {series.map((info) => (
         <Card key={info.title} {...info} />
       ))}
