@@ -17,6 +17,7 @@ export interface TrailerProps {
   thumbnailSrc: string;
   videoSrc: string;
   production: string;
+  open: (trailer: string) => void;
 }
 export interface DetailProps {
   description: string;
