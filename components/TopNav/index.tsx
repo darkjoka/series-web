@@ -1,67 +1,36 @@
-import { useTransition } from "@react-spring/web";
-import Link from "next/link";
-import { Menu, Moon, Sun } from "react-feather";
-import { Hamburger, Logo, Main, NavLink, NavLinks, ThemeIcon, Wrapper } from "./style";
+import React from 'react';
+import Link from 'next/link';
+import {Menu} from 'react-feather';
+import TopNavProps from './TopNav.type';
+import ThemeToggle from './themeToggle';
+import LogoLink from './logoLink';
+import NavigationLink from './navigationLink';
 
-interface TopNavProps {
-  handler: () => void;
-  themeHandlerLight: () => void;
-  themeHandlerDark: () => void;
-  isLight: boolean;
-}
+const navigationLinks = [
+  {to: '/', linkName: 'Home'},
+  {to: '/trailers', linkName: 'Trailers'},
+  {to: '/filter/actiion', linkName: 'Action'},
+  {to: '/fiilter/fantasy', linkName: 'Fantasy'},
+  {to: '/filter/romance', linkName: 'Romance'},
+];
 
-export const TopNav = ({ handler, themeHandlerLight, themeHandlerDark, isLight }: TopNavProps) => {
-  const themeConfig = {
-    from: { opacity: 0, x: -50, y: 20 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    leave: { opacity: 0, x: 50, y: 20 },
-  };
-  const lightTransition = useTransition(isLight, themeConfig);
-  const darkTransition = useTransition(!isLight, themeConfig);
-
+export const TopNav = ({handler, ...themeProps}: TopNavProps) => {
   return (
-    <Wrapper>
-      <Main>
-        <Hamburger onClick={handler}>
-          <Menu />
-        </Hamburger>
-        <Link href="/" passHref>
-          <Logo>SeriesB</Logo>
-        </Link>
-        <NavLinks>
-          <Link href="/" passHref>
-            <NavLink>Home</NavLink>
-          </Link>
-          <Link href="/trailers" passHref replace>
-            <NavLink>Trailers</NavLink>
-          </Link>
-          <Link href="/filter/action" passHref replace>
-            <NavLink>Action</NavLink>
-          </Link>
-          <Link href="/filter/fantasy" passHref replace>
-            <NavLink>Fantasy</NavLink>
-          </Link>
-          <Link href="/filter/romance" passHref>
-            <NavLink>Romance</NavLink>
-          </Link>
-        </NavLinks>
-        {lightTransition(
-          (style, item) =>
-            item && (
-              <ThemeIcon style={style} onClick={themeHandlerDark}>
-                <Moon />
-              </ThemeIcon>
-            )
-        )}
-        {darkTransition(
-          (style, item) =>
-            item && (
-              <ThemeIcon style={style} onClick={themeHandlerLight}>
-                <Sun />
-              </ThemeIcon>
-            )
-        )}
-      </Main>
-    </Wrapper>
+    <div className="h-16 w-full px-2 shadow-sm md:px-4 xl:px-8 flex align-center justify-center">
+      <div className="w-full h-full flex items-center justify-between 2xl:max-w-[90rem]">
+        <div className="h-full grid place-items-center 2xl:hidden">
+          <button onClick={handler} className="p-1">
+            <Menu />
+          </button>
+        </div>
+        <LogoLink />
+        <div className="hidden space-x-4 2xl:block">
+          {navigationLinks.map(navigationLink => (
+            <NavigationLink {...navigationLink} />
+          ))}
+        </div>
+        <ThemeToggle {...themeProps} />
+      </div>
+    </div>
   );
 };
