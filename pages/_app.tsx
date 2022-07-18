@@ -1,18 +1,18 @@
-import { NextPage } from "next";
-import { AppProps } from "next/app";
-import React, { ReactElement, ReactNode } from "react";
-import NextNProgress from "nextjs-progressbar";
-import { ThemeProvider } from "styled-components";
+import {NextPage} from 'next';
+import {AppProps} from 'next/app';
+import React, {ReactElement, ReactNode} from 'react';
+import NextNProgress from 'nextjs-progressbar';
+import {ThemeProvider} from 'styled-components';
 
-import "../styles/globals.css";
+import '../styles/globals.css';
 
-import { Hero } from "../components/Hero";
-import { TopNav } from "../components/TopNav";
-import { Search } from "../components/Search";
-import { Content } from "../components/Content";
-import { SideNav } from "../components/SideNav";
-import { Portal } from "../components/Portal";
-import useStore from "../store/useStore";
+import {Hero} from '../components/Hero';
+import {TopNav} from '../components/TopNav';
+import {Search} from '../components/Search';
+import {Content} from '../components/Content';
+import {SideNav} from '../components/SideNav';
+import {Portal} from '../components/Portal';
+import useStore from '../store/useStore';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -22,13 +22,16 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+const App = ({Component, pageProps}: AppPropsWithLayout) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [isLight, setIsLight] = React.useState<boolean>(true);
   const [anyDialog, setAnyDialog] = React.useState<boolean>(false);
 
-  const [toggleLight, toggleDark] = useStore((state) => [state.toggleLight, state.toggleDark]);
-  const theme = useStore((state) => state.theme);
+  const [toggleLight, toggleDark] = useStore(state => [
+    state.toggleLight,
+    state.toggleDark,
+  ]);
+  const theme = useStore(state => state.theme);
 
   const openSide = () => {
     setIsOpen(true);
@@ -51,14 +54,14 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   };
 
   React.useEffect(() => {
-    const body = document.querySelector("body");
+    const body = document.querySelector('body') as HTMLBodyElement;
     body.style.background = theme.altBackground;
     body.style.color = theme.primaryText;
 
     if (anyDialog) {
-      body.style.overflow = "hidden";
+      body.style.overflow = 'hidden';
     } else {
-      body.style.overflow = "auto";
+      body.style.overflow = 'auto';
     }
   });
 
@@ -66,10 +69,15 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     Component.getLayout ??
     ((page: ReactElement) => (
       <ThemeProvider theme={theme}>
-        <Portal selector={"#top"}>
-          <TopNav handler={openSide} themeHandlerLight={light} themeHandlerDark={dark} isLight={isLight} />
+        <Portal selector={'#top'}>
+          <TopNav
+            handler={openSide}
+            themeHandlerLight={light}
+            themeHandlerDark={dark}
+            isLight={isLight}
+          />
         </Portal>
-        <Portal selector={"#side"}>
+        <Portal selector={'#side'}>
           <SideNav handler={closeSide} visible={isOpen} />
         </Portal>
         <Hero />
@@ -80,7 +88,11 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
 
   return getLayout(
     <ThemeProvider theme={theme}>
-      <NextNProgress color={theme.brand} options={{ showSpinner: false }} height={5} />
+      <NextNProgress
+        color={theme.brand}
+        options={{showSpinner: false}}
+        height={5}
+      />
       <Component {...pageProps} setDialog={setAnyDialog} />
     </ThemeProvider>
   );
