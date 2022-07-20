@@ -1,4 +1,4 @@
-export default interface TopNavProps {
+export interface TopNavProps {
   handler: () => void;
   themeHandlerLight: () => void;
   themeHandlerDark: () => void;
