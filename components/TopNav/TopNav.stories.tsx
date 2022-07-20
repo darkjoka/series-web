@@ -1,6 +1,6 @@
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 import React from 'react';
-import {TopNav} from '.';
+import TopNav from '.';
 
 export default {
   title: 'Component/TopNav',
