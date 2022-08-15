@@ -19,11 +19,11 @@ export const Search = () => {
 
   return (
     <div className="grid place-items-center -mt-9">
-      <div
+      <form
         className={`border-2 ${
           isFocused &&
           'ring-4 ring-teal-500 ring-opacity-80 ring-offset-1 border-none'
-        } rounded-3xl h-20 flex items-center justify-center w-11/12 max-w-2xl pl-4 pr-2 py-5 shadow-lg space-x-2`}
+        } rounded-3xl h-20 flex items-center justify-center w-11/12 max-w-2xl pl-4 pr-2 py-5 shadow-md space-x-2`}
         onSubmit={handleSubmit}
       >
         <input
@@ -39,12 +39,12 @@ export const Search = () => {
         />
 
         <button
-          className="bg-teal-400 w-36 focus:ring-4 focus:ring-teal-400 ring-offset-2 h-14 rounded-2xl font-semibold text-xl shadow-md hover:shadow-none"
+          className="bg-teal-400 w-36 outline-none ring-offset-transparent focus:ring-4 focus:ring-teal-400 ring-offset-2 h-14 rounded-2xl font-semibold text-xl shadow-md hover:shadow-none"
           onClick={handleSubmit}
         >
           Search
         </button>
-      </div>
+      </form>
     </div>
   );
 };
