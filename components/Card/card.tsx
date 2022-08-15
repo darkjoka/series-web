@@ -7,7 +7,7 @@ const Card = ({title, teaser = '', rating, imageSrc, permalink}: CardProps) => {
   const route = `/detail/${permalink}`;
   return (
     <Link href={route} passHref>
-      <a className="focus:outline-none focus:ring focus:ring-offset-2 focus:ring-gray-400 rounded">
+      <a className="focus:outline-none focus:ring focus:ring-offset-2 focus:ring-teal-400 rounded">
         <div className="w-full h-52 rounded shadow-md flex items-center  p-4 space-x-3 sm:space-x-0 sm:w-72 sm:h-auto sm:flex-col sm:rounded-md ">
           <img
             alt={title}
