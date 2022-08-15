@@ -39,7 +39,7 @@ export const Search = () => {
         />
 
         <button
-          className="bg-teal-400 w-36 outline-none ring-offset-transparent focus:ring-4 focus:ring-teal-400 ring-offset-2 h-14 rounded-2xl font-semibold text-xl shadow-md hover:shadow-none"
+          className="bg-teal-400 w-36 outline-none  focus:ring-4 focus:ring-teal-400 ring-offset-2 h-14 rounded-2xl font-semibold text-xl shadow-md hover:shadow-none"
           onClick={handleSubmit}
         >
           Search
