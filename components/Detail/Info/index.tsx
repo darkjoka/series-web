@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { Description, Genre, GenreArea, Wrapper } from "./style";
+import Link from 'next/link';
+import React from 'react';
+import {Description, Genre, GenreArea, Wrapper} from './style';
 
 type InfoProps = {
   description: string;
@@ -7,17 +8,19 @@ type InfoProps = {
   title: string;
 };
 
-export const Info = ({ description, genres, title }: InfoProps) => {
+export const Info = ({description, genres}: InfoProps) => {
   return (
-    <Wrapper>
-      <GenreArea>
-        {genres.map((genre) => (
+    <div className="mx-auto w-11/12 lg:max-w-[100rem]">
+      <div className="flex flex-wrap">
+        {genres.map(genre => (
           <Link href={`/filter/${genre.toLowerCase()}`} key={genre} passHref>
-            <Genre>{genre}</Genre>
+            <a className="m-1 p-3 relative text-xl before:absolute before:w-10 before:h-3 before:bg-teal-500 before:bottom-2 before:left-2 before:-z-10 before:transition-all hover:before:w-16 font-semibold">
+              {genre}
+            </a>
           </Link>
         ))}
-      </GenreArea>
-      <Description>{description}</Description>
-    </Wrapper>
+      </div>
+      <div className="text-slate-500 font-semibold text-lg">{description}</div>
+    </div>
   );
 };
