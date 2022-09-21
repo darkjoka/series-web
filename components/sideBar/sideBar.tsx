@@ -3,7 +3,7 @@ import React from 'react';
 
 import dynamic from 'next/dynamic';
 
-const Portal = dynamic(() => import('../Portal'), {ssr: false});
+const Portal = dynamic(() => import('../portal'), {ssr: false});
 
 export type SideBarProps = {show: boolean; close: VoidFunction};
 
@@ -22,7 +22,7 @@ export default function SideBar({show, close}: SideBarProps) {
             item && (
               <>
                 <a.div
-                  className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-30 z-10"
+                  className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-30 z-10"
                   style={{opacity}}
                   onClick={close}
                 ></a.div>
