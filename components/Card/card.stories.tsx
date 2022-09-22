@@ -18,8 +18,9 @@ Default.args = {
   permalink: '',
   rating: '3.45343',
   teaser:
-    'Set in a dystopian universe where food is scarce, a boy and his step mom must survive the perils of living life with no tunnels for hope',
-  title: 'Some Amazing Movie',
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat reiciendis deleniti laborum dolor recusandae? Omnis, numquam sed? Ea suscipit voluptates molestias repellat vitae consectetur acere labore in, nam dignissimos magnam ipsam ipsa quia asperiores, molestiae nostrum sed! Totam, accusantium doloremque.',
+  title:
+    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,quam!',
 };
 
 export const NoTeaser = Template.bind({});
@@ -28,5 +29,6 @@ NoTeaser.args = {
   permalink: '',
   rating: '3.45343',
   teaser: '',
-  title: 'Some Amazing Movie',
+  title:
+    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,quam!',
 };
