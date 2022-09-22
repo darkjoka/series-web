@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DetailDescription() {
+export default function DetailDescription({description, genres}) {
   return (
     <>
       {/* tags */}
@@ -13,12 +13,7 @@ export default function DetailDescription() {
 
       {/* teaser */}
       <div>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
-          optio, consectetur reprehenderit quas molestiae quod eos amet illum
-          corporis nam deserunt quisquam distinctio laborum adipisci maxime rem
-          pariatur blanditiis?
-        </p>
+        <p>{description}</p>
       </div>
     </>
   );
