@@ -1,6 +1,6 @@
-import React from 'react';
 import axios from 'axios';
 import {GetServerSideProps} from 'next';
+import React from 'react';
 
 import {Meta} from '../../components/Meta';
 import DetailSummary from '../../components/detailSummary';
@@ -14,7 +14,6 @@ export default function Page({data}) {
         title={`Download ${data.title}`}
         image={data.heroImage}
       />
-      {/* <Detail {...data} prev={prev} /> */}
       <div className="max-w-6xl">
         <DetailSummary {...data} />
         <DownLoadInfo {...data} />
