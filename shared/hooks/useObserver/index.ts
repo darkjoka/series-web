@@ -9,7 +9,7 @@ type ObserverOptions = {
 export const useObserver = (options: ObserverOptions): [any, boolean, IntersectionObserver] => {
   const ref: { current: null | HTMLElement } = React.useRef(null);
   const [onScreen, setOnScreen] = React.useState(false);
-  let observer = React.useRef<IntersectionObserver>();
+  let observer = React.useRef<IntersectionObserver>() as React.MutableRefObject<IntersectionObserver>;
 
   React.useEffect(() => {
     observer.current = new IntersectionObserver(([entry]) => {
