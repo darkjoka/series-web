@@ -1,12 +1,10 @@
-import axios from "axios";
-import { GetStaticProps } from "next";
-import { useState } from "react";
+import axios from 'axios';
+import {GetStaticProps} from 'next';
+import React, {useState} from 'react';
 
-import { Dialog } from "../components/Dialog";
-import { Heading } from "../components/Heading";
-import { Meta } from "../components/Meta";
-import { WideCard } from "../components/WideCard";
-import { TrailerProps } from "../shared/constants/types";
+import {Meta} from '../components/Meta';
+import WideCard from '../components/WideCard';
+import {TrailerProps} from '../shared/constants/types';
 
 const dayInSeconds = 60 * 60 * 24;
 
@@ -22,11 +20,11 @@ export const getStaticProps: GetStaticProps = async () => {
   const data: [TrailerProps] = response.data.data;
 
   const metaImage = data[Math.floor(Math.random() * data.length)].thumbnailSrc;
-  const titles = data.map(({ title }) => title);
-  const productions = data.map(({ production }) => production);
+  const titles = data.map(({title}) => title);
+  const productions = data.map(({production}) => production);
   const productionSet = new Array(new Set(productions));
   const keywordArr = [...titles, ...productionSet];
-  const keywords = keywordArr.join(", ");
+  const keywords = keywordArr.join(', ');
 
   return {
     props: {
@@ -38,22 +36,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function App({ data, metaImage, keywords, setDialog }: PageProps) {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [currentTrailer, setCurrentTrailer] = useState("");
-
-  const closeDialog = () => {
-    setIsDialogOpen(false);
-    setCurrentTrailer("");
-    setDialog(false);
-  };
-
-  const openDialog = (trailer: string) => {
-    setCurrentTrailer(trailer);
-    setIsDialogOpen(true);
-    setDialog(true);
-  };
-
+export default function App({data, metaImage, keywords, setDialog}: PageProps) {
   return (
     <>
       <Meta
@@ -62,11 +45,10 @@ export default function App({ data, metaImage, keywords, setDialog }: PageProps)
         description="Watch trailers of the latest tv series"
         keywords={keywords}
       />
-      <Heading>Trailers</Heading>
-      {data.map((info) => (
-        <WideCard key={info.permalink} {...info} open={openDialog} />
+      <div />
+      {data.map(info => (
+        <WideCard key={info.permalink} {...info} />
       ))}
-      <Dialog isOpen={isDialogOpen} trailer={currentTrailer} close={closeDialog} />
     </>
   );
 }
