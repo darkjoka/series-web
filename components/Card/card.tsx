@@ -1,32 +1,45 @@
 import Link from 'next/link';
 import React from 'react';
 
-import {CardProps} from '.';
+export interface CardProps {
+  imageSrc: string;
+  permalink: string;
+  rating?: string;
+  teaser?: string;
+  title: string;
+}
+
+const parseRate = (rating?: string) =>
+  rating ? (Number(rating) * 2).toFixed(1).toString() : '';
 
 const Card = ({title, teaser = '', rating, imageSrc, permalink}: CardProps) => {
-  const route = `/detail/${permalink}`;
+  const route = `/download/${permalink}`;
+  rating = parseRate(rating);
+
   return (
     <Link href={route} passHref>
-      <a className="focus:outline-none focus:ring focus:ring-offset-2 focus:ring-teal-400 rounded">
-        <div className="w-full h-52 rounded shadow-md flex items-center  p-4 space-x-3 sm:space-x-0 sm:w-72 sm:h-auto sm:flex-col sm:rounded-md ">
-          <img
-            alt={title}
-            src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${imageSrc}`}
-            className="w-32 h-44 min-w-[8rem] object-cover rounded shadow-lg sm:w-full sm:object-top sm:rounded-md"
-          />
+      <a className="inline-block">
+        <div className="w-full h-48 border rounded-lg bg-white hover:bg-gray-50 active:bg-gray-100 flex p-2 space-x-2 sm:w-72 sm:flex-col sm:space-x-0 sm:h-auto sm:space-y-2 hover:pointer">
+          <div className="h-full w-32 bg-gray-200 rounded-md sm:w-full sm:h-44">
+            <img
+              alt={title}
+              src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${imageSrc}`}
+              className="w-32 h-full min-w-[8rem] object-cover rounded sm:w-full sm:object-top sm:rounded-md"
+            />
+          </div>
 
-          <div
-            className={`flex flex-col h-44 flex-grow justify-between sm:mt-2 sm:w-full ${
-              !teaser && 'sm:h-auto'
-            }`}
-          >
-            <p className="line-clamp-2 font-bold text-xl">{title}</p>
-            <p className="line-clamp-4 font-semibold text-slate-500 ">
-              {teaser}
-            </p>
-            <p className="flex-row-reverse flex font-bold text-xl ">
-              {rating ? (Number(rating) * 2).toFixed(1).toString() : ''}
-            </p>
+          <div className="flex-1 flex-col space-y-3 sm:space-y-1">
+            <div className="h-12">
+              <p className="line-clamp-2 font-bold text">{title}</p>
+            </div>
+            <div className="h-20">
+              <p className="line-clamp-4 font-semibold text-slate-500 text-sm">
+                {teaser}
+              </p>
+            </div>
+            <div className="h-6 ">
+              <p className="flex-row-reverse font-bold flex">{rating}</p>
+            </div>
           </div>
         </div>
       </a>

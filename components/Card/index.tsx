@@ -1,2 +1,2 @@
 export {default} from './card';
-export type {CardProps} from './card.type';
+export type {CardProps} from './card';
