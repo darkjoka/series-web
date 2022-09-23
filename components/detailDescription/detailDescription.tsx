@@ -4,11 +4,10 @@ export default function DetailDescription({description, genres}) {
   return (
     <>
       {/* tags */}
-      <div className="flex space-x-2 items-center mt-2 flex-wrap sm:my-4 space-y-2">
-        <div className="p-2 border rounded hover:bg-gray-100">Lorem.</div>
-        <div className="p-2 border rounded hover:bg-gray-100">Det</div>
-        <div className="p-2 border rounded hover:bg-gray-100">Lorem</div>
-        <div className="p-2 border rounded hover:bg-gray-100">Lorem dolor.</div>
+      <div className="flex items-center space-x-2 my-2">
+        {genres.map(genre => (
+          <GenreTag {...{genre}} key={genre} />
+        ))}
       </div>
 
       {/* teaser */}
@@ -18,3 +17,7 @@ export default function DetailDescription({description, genres}) {
     </>
   );
 }
+
+const GenreTag = ({genre}) => {
+  return <div className="px-2 border rounded hover:bg-gray-100">{genre}</div>;
+};
