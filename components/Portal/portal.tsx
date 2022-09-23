@@ -1,9 +1,9 @@
 // ref: https://spectrum.chat/react-spring/general/react-spring-modal-help~64fcff35-fc8a-4334-b65a-a8d74aa1a552
-import React, {useEffect, useRef} from 'react';
+import React, {ReactNode, useEffect, useRef} from 'react';
 import {createPortal} from 'react-dom';
 
-export default function Portal({children}) {
-  const portalRoot = document.getElementById('top');
+export default function Portal({children}: {children: ReactNode}) {
+  const portalRoot = document.getElementById('portal');
   const mainDivRef = useRef(document.createElement('div'));
 
   useEffect(() => {
