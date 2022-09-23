@@ -6,14 +6,12 @@ type ObserverOptions = {
   threshold?: number;
 };
 
-export const useObserver = (options: ObserverOptions): [any, boolean, any] => {
+export const useObserver = (options: ObserverOptions): [any, boolean, IntersectionObserver] => {
   const ref: { current: null | HTMLElement } = React.useRef(null);
   const [onScreen, setOnScreen] = React.useState(false);
-<<<<<<< HEAD
-  let observer = React.useRef<any>() as React.MutableRefObject<any>;
-=======
-  let observer = React.useRef<IntersectionObserver>();
->>>>>>> parent of 0dfe1e8 (force types)
+
+  let observer = React.useRef<IntersectionObserver>() as React.MutableRefObject<IntersectionObserver>;
+
 
   React.useEffect(() => {
     observer.current = new IntersectionObserver(([entry]) => {
