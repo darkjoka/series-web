@@ -1,17 +1,16 @@
-import axios from "axios";
-import { GetStaticProps } from "next";
-import React from "react";
+import axios from 'axios';
+import {GetStaticProps} from 'next';
+import React from 'react';
 
-import { Card } from "../components/Card";
-import { Heading } from "../components/Heading";
-import { Loader } from "../components/Loader";
-import { Meta } from "../components/Meta";
-import { CardProps } from "../shared/constants/types";
+import Card from '../components/Card';
+import {Meta} from '../components/Meta';
+import LoadMore from '../components/loadMore';
+import {CardProps} from '../shared/constants/types';
 
 const dayInSeconds = 60 * 60 * 24;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await axios.get(process.env.BACKEND_HOST);
+  const response = await axios.get(process.env.BACKEND_HOST as string);
   const info: CardProps[] = response.data.data;
   const metaImage = info[Math.floor(Math.random() * info.length)].imageSrc;
   return {
@@ -23,11 +22,13 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Home({ info, metaImage }: { info: [CardProps]; metaImage: string }) {
+export default function Home(props: {info: [CardProps]; metaImage: string}) {
+  const {info, metaImage} = props;
+
   const [cursor, setCursor]: any = React.useState(info.length);
   const [series, setSeries]: any = React.useState(info);
 
-  const updater = (data) => {
+  const updater = data => {
     if (data) {
       const newSeries = series.concat(data);
       setCursor(newSeries.length);
@@ -45,11 +46,13 @@ export default function Home({ info, metaImage }: { info: [CardProps]; metaImage
         image={metaImage}
         keywords="drama, action, action series, history series, history, thriller, thriller series, comedy, comedy series"
       />
-      <Heading>Tv Series</Heading>
+
+      {/* ui breaks when removed  TODO: investigate*/}
+      <div />
       {series.map((info: CardProps) => (
         <Card key={info.title} {...info} />
       ))}
-      <Loader url={url} handler={updater} />
+      <LoadMore url={url} handler={updater} />
     </>
   );
 }
