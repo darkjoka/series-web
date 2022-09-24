@@ -4,7 +4,7 @@ import React from 'react';
 
 import useSide from '../../store/useSide';
 
-const Portal = dynamic(() => import('../portal'), {ssr: false});
+const Portal = dynamic(() => import('../port'), {ssr: false});
 
 export default function SideBar() {
   const {isSideOpen, closeSide} = useSide();

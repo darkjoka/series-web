@@ -7,7 +7,7 @@ import React, {useCallback, useState} from 'react';
 import useSearch from '../../store/useSearch';
 import debounce from '../../utils/debounce';
 
-const Portal = dynamic(() => import('../portal'), {ssr: false});
+const Portal = dynamic(() => import('../port'), {ssr: false});
 
 export default function SearchModal() {
   const {isSearchOpen, closeSearch} = useSearch();
