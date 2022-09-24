@@ -1,11 +1,11 @@
-import axios from 'axios';
-import {GetStaticProps} from 'next';
-import React from 'react';
+import axios from "axios";
+import { GetStaticProps } from "next";
+import React from "react";
 
-import {Meta} from '../components/Meta';
-import Card from '../components/card';
-import LoadMore from '../components/loadMore';
-import {CardProps} from '../shared/constants/types';
+import { Meta } from "../components/Meta";
+import LoadMore from "../components/loadMore";
+import { CardProps } from "../shared/constants/types";
+import Card from "./../components/card";
 
 const dayInSeconds = 60 * 60 * 24;
 
@@ -22,13 +22,13 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Home(props: {info: [CardProps]; metaImage: string}) {
-  const {info, metaImage} = props;
+export default function Home(props: { info: [CardProps]; metaImage: string }) {
+  const { info, metaImage } = props;
 
   const [cursor, setCursor]: any = React.useState(info.length);
   const [series, setSeries]: any = React.useState(info);
 
-  const updater = data => {
+  const updater = (data) => {
     if (data) {
       const newSeries = series.concat(data);
       setCursor(newSeries.length);
