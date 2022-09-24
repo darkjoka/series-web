@@ -1,36 +1,24 @@
 import create from "zustand";
+import { defaultBrand } from "../theme/base";
+import { themes } from "../theme";
+import { Brand, ThemeState } from "../theme/types";
+
+const [light, dim] = themes;
 
 const useStore = create<Store>((set) => ({
-  isSideOpen: false,
-  isPlayerOpen: false,
-  isSearchOpen: false,
-  isAnyOpen: false,
-  playerSrc: "",
-  openSide: () => set((state) => ({ isSideOpen: true, isAnyOpen: true })),
-  closeSide: () => set((state) => ({ isSideOpen: false, isAnyOpen: false })),
-  openPlayer: () => set((state) => ({ isPlayerOpen: true, isAnyOpen: true })),
-  closePlayer: () => set((state) => ({ isPlayerOpen: false, isAnyOpen: false, playerSrc: "" })),
-  openSearch: () => set((state) => ({ isSearchOpen: true, isAnyOpen: true })),
-  closeSearch: () => set((state) => ({ isSearchOpen: false, isAnyOpen: false })),
-  setPlayer: (source: string) => set((state) => ({ playerSrc: source }))
+  brand: defaultBrand,
+  theme: light(defaultBrand),
+  toggleLight: () => set((state) => ({ theme: light(state.brand) })),
+  toggleDark: () => set((state) => ({ theme: dim(state.brand) })),
+  changeBrand: (brand) => set((state) => ({ brand })),
 }));
 
-
-export type Store = {
-  isSideOpen: boolean
-  isPlayerOpen: boolean
-  isSearchOpen: boolean
-  isAnyOpen: boolean
-  playerSrc: string
-  openSide: VoidFunction
-  closeSide: VoidFunction
-  openPlayer: VoidFunction
-  closePlayer: VoidFunction
-  openSearch: VoidFunction
-  closeSearch: VoidFunction
-  setPlayer: (source: string) => void
-
+interface Store {
+  brand: Brand;
+  theme: ThemeState;
+  toggleLight: () => void;
+  toggleDark: () => void;
+  changeBrand: (brand: Brand) => void;
 }
-
 
 export default useStore;
