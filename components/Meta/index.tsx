@@ -1,10 +1,11 @@
-import Head from "next/head";
+import Head from 'next/head';
+import React from 'react';
 
 export const Meta = ({
   title,
   description,
   image,
-  keywords = "",
+  keywords = '',
 }: {
   title: string;
   description: string;
@@ -14,7 +15,6 @@ export const Meta = ({
   image = `${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${image}`;
   return (
     <Head>
-      <html lang="en" />
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta
