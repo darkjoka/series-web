@@ -22,11 +22,17 @@ export default function DetailSummary({description, title, heroImage, genres}) {
         <DetailMetaInfo {...{title, handleShare}} />
       </div>
       <div className="w-full rounded aspect-video bg-gray-200 sm:flex-1 sm:mr-4">
-        <img
-          alt={title}
-          src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${heroImage}`}
-          className="w-full h-full object-cover rounded"
-        />
+        <picture>
+          <source
+            srcSet={`${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${heroImage}`}
+            type="image/webp"
+          />
+          <img
+            alt={title}
+            src={`${process.env.NEXT_PUBLIC_BACKEND_HOST}image/${heroImage}`}
+            className="w-full h-full object-cover rounded"
+          />
+        </picture>
       </div>
       <div className="sm:flex-1">
         <div className="hidden sm:block">

@@ -1,7 +1,7 @@
 import {a, useTransition} from '@react-spring/web';
+import dynamic from 'next/dynamic';
 import React from 'react';
 
-import dynamic from 'next/dynamic';
 import useSide from '../../store/useSide';
 
 const Portal = dynamic(() => import('../portal'), {ssr: false});
