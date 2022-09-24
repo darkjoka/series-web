@@ -23,19 +23,18 @@ export interface DetailProps {
   description: string;
   genres: [string];
   heroImage: string;
-  seasonEpisodes: SeasonEpisode[]
+  seasonEpisodes: [
+    {
+      season: string;
+      episodes: [
+        {
+          episodePermalink: string;
+          episodeSize: string;
+          episodeTitle: string;
+        }
+      ];
+    }
+  ];
   title: string;
   prev?: string;
-}
-
-
-export interface SeasonEpisode {
-  season: string
-  episodes: Episode[]
-}
-
-export interface Episode {
-  episodePermalink: string;
-  episodeSize: string;
-  episodeTitle: string
 }
