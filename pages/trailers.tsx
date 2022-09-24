@@ -36,23 +36,24 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-// export default function App({data, metaImage, keywords, setDialog}: PageProps) {
-//   return (
-//     <>
-//       <Meta
-//         title="Series App - Trailers"
-//         image={metaImage}
-//         description="Watch trailers of the latest tv series"
-//         keywords={keywords}
-//       />
-//       <div />
-//       {data.map(info => (
-//         <WideCard key={info.permalink} {...info} />
-//       ))}
-//     </>
-//   );
-// }
-
-export default function Home() {
-  return <div>Welcome</div>;
+export default function App({
+  data,
+  metaImage,
+  keywords,
+  setDialog,
+}: PageProps) {
+  return (
+    <>
+      <Meta
+        title="Series App - Trailers"
+        image={metaImage}
+        description="Watch trailers of the latest tv series"
+        keywords={keywords}
+      />
+      <div />
+      {/* {data.map(info => (
+        <WideCard key={info.permalink} {...info} />
+      ))} */}
+    </>
+  );
 }
