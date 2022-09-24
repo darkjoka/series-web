@@ -22,12 +22,14 @@ export default function DownLoadInfo({
       <div className="hidden sm:flex space-x-2">
         <div className="flex-1 space-y-2">
           {seasonEpisodes.map((season, index) => {
-            if (index % 2 === 0)
+            if (index % 2 === 0) {
               return (
                 <Accordion title={season.season} key={season.season}>
                   <Episodes episodes={season.episodes} />
                 </Accordion>
               );
+            }
+            return null;
           })}
         </div>
         <div className="flex-1 space-y-2">
@@ -38,6 +40,7 @@ export default function DownLoadInfo({
                   <Episodes episodes={season.episodes} />
                 </Accordion>
               );
+            return null;
           })}
         </div>
       </div>
