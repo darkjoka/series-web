@@ -4,7 +4,7 @@ import React from 'react';
 
 import usePlayer from '../../store/usePlayer';
 
-const Portal = dynamic(() => import('../portal'), {ssr: false});
+const Portal = dynamic(() => import('../port'), {ssr: false});
 
 export default function PlayerModal({}: {}) {
   const {isPlayerOpen, closePlayer, playerSrc} = usePlayer();

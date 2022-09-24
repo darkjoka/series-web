@@ -1,11 +1,11 @@
-import axios from 'axios';
-import {GetStaticProps} from 'next';
-import React from 'react';
+import axios from "axios";
+import { GetStaticProps } from "next";
+import React from "react";
 
-import {Meta} from '../components/Meta';
-import Card from '../components/card';
-import LoadMore from '../components/loadMore';
-import {CardProps} from '../shared/constants/types';
+import { Meta } from "../components/Meta";
+import LoadMore from "../components/loadMore";
+import MovieCard from "../components/movieCard";
+import { CardProps } from "../shared/constants/types";
 
 const dayInSeconds = 60 * 60 * 24;
 
@@ -22,13 +22,13 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Home(props: {info: [CardProps]; metaImage: string}) {
-  const {info, metaImage} = props;
+export default function Home(props: { info: [CardProps]; metaImage: string }) {
+  const { info, metaImage } = props;
 
   const [cursor, setCursor]: any = React.useState(info.length);
   const [series, setSeries]: any = React.useState(info);
 
-  const updater = data => {
+  const updater = (data) => {
     if (data) {
       const newSeries = series.concat(data);
       setCursor(newSeries.length);
@@ -50,9 +50,13 @@ export default function Home(props: {info: [CardProps]; metaImage: string}) {
       {/* ui breaks when removed  TODO: investigate*/}
       <div />
       {series.map((info: CardProps) => (
-        <Card key={info.title} {...info} />
+        <MovieCard key={info.title} {...info} />
       ))}
       <LoadMore url={url} handler={updater} />
     </>
   );
 }
+
+// export default function Home() {
+//   return <div>Welcome</div>;
+// }

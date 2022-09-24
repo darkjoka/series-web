@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import React from 'react';
-import {DownloadCloud} from 'react-feather';
+import Link from "next/link";
+import React from "react";
+import { DownloadCloud } from "react-feather";
 
-import {TrailerProps} from '../../shared/constants/types';
-import usePlayer from '../../store/usePlayer';
+import { TrailerProps } from "../../shared/constants/types";
+import usePlayer from "../../store/usePlayer";
 
-export default function WideCard(props: TrailerProps) {
-  const {title, thumbnailSrc, videoSrc, permalink} = props;
-  const {openPlayer, setPlayer} = usePlayer();
+export default function TrailerCard(props: TrailerProps) {
+  const { title, thumbnailSrc, videoSrc, permalink } = props;
+  const { openPlayer, setPlayer } = usePlayer();
 
   function handleClick() {
     setPlayer(videoSrc);
@@ -39,7 +39,7 @@ export default function WideCard(props: TrailerProps) {
           <div className="flex items-center justify-end">
             <Link href={`/download/${permalink}`}>
               <a
-                onClick={e => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
                 className="border p-2 rounded hover:bg-gray-100"
               >
                 <DownloadCloud />

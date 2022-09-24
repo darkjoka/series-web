@@ -1,10 +1,10 @@
-import axios from 'axios';
-import {GetStaticProps} from 'next';
-import React, {useState} from 'react';
+import axios from "axios";
+import { GetStaticProps } from "next";
+import React, { useState } from "react";
 
-import {Meta} from '../components/Meta';
-import WideCard from '../components/wideCard';
-import {TrailerProps} from '../shared/constants/types';
+import { Meta } from "../components/Meta";
+import TrailerCard from "../components/trailerCard";
+import { TrailerProps } from "../shared/constants/types";
 
 const dayInSeconds = 60 * 60 * 24;
 
@@ -20,11 +20,11 @@ export const getStaticProps: GetStaticProps = async () => {
   const data: [TrailerProps] = response.data.data;
 
   const metaImage = data[Math.floor(Math.random() * data.length)].thumbnailSrc;
-  const titles = data.map(({title}) => title);
-  const productions = data.map(({production}) => production);
+  const titles = data.map(({ title }) => title);
+  const productions = data.map(({ production }) => production);
   const productionSet = new Array(new Set(productions));
   const keywordArr = [...titles, ...productionSet];
-  const keywords = keywordArr.join(', ');
+  const keywords = keywordArr.join(", ");
 
   return {
     props: {
@@ -36,7 +36,12 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function App({data, metaImage, keywords, setDialog}: PageProps) {
+export default function App({
+  data,
+  metaImage,
+  keywords,
+  setDialog,
+}: PageProps) {
   return (
     <>
       <Meta
@@ -46,8 +51,8 @@ export default function App({data, metaImage, keywords, setDialog}: PageProps) {
         keywords={keywords}
       />
       <div />
-      {data.map(info => (
-        <WideCard key={info.permalink} {...info} />
+      {data.map((info) => (
+        <TrailerCard key={info.permalink} {...info} />
       ))}
     </>
   );

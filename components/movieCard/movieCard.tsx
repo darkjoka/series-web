@@ -1,18 +1,13 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
-export interface CardProps {
-  imageSrc: string;
-  permalink: string;
-  rating?: string;
-  teaser?: string;
-  title: string;
-}
+import { CardProps } from "../../shared/constants/types";
 
 const parseRate = (rating?: string) =>
-  rating ? (Number(rating) * 2).toFixed(1).toString() : '';
+  rating ? (Number(rating) * 2).toFixed(1).toString() : "";
 
-const Card = ({title, teaser = '', rating, imageSrc, permalink}: CardProps) => {
+export default function MovieCard(props: CardProps) {
+  let { title, teaser = "", rating, imageSrc, permalink } = props;
   const route = `/download/${permalink}`;
   rating = parseRate(rating);
 
@@ -51,6 +46,4 @@ const Card = ({title, teaser = '', rating, imageSrc, permalink}: CardProps) => {
       </a>
     </Link>
   );
-};
-
-export default Card;
+}
