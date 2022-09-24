@@ -3,7 +3,7 @@ import {GetStaticProps} from 'next';
 import React, {useState} from 'react';
 
 import {Meta} from '../components/Meta';
-import WideCard from '../components/WideCard';
+import WideCard from '../components/wideCard';
 import {TrailerProps} from '../shared/constants/types';
 
 const dayInSeconds = 60 * 60 * 24;

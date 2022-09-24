@@ -2,8 +2,8 @@ import axios from 'axios';
 import {GetStaticProps} from 'next';
 import React from 'react';
 
-import Card from '../components/Card';
 import {Meta} from '../components/Meta';
+import Card from '../components/card';
 import LoadMore from '../components/loadMore';
 import {CardProps} from '../shared/constants/types';
 
