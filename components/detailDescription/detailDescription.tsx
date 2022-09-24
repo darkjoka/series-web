@@ -4,7 +4,7 @@ export default function DetailDescription({ description, genres }) {
   return (
     <>
       {/* tags */}
-      <div className="flex items-center space-x-2 my-2 overflow-x-scroll">
+      <div className="flex items-center space-x-2 my-2  flex-wrap space-y-2">
         {genres.map((genre) => (
           <GenreTag {...{ genre }} key={genre} />
         ))}
