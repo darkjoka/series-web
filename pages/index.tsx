@@ -4,9 +4,8 @@ import React from "react";
 
 import { Meta } from "../components/Meta";
 import LoadMore from "../components/loadMore";
+import MovieCard from "../components/movieCard";
 import { CardProps } from "../shared/constants/types";
-
-// import Card from "./../components/card";
 
 const dayInSeconds = 60 * 60 * 24;
 
@@ -50,9 +49,9 @@ export default function Home(props: { info: [CardProps]; metaImage: string }) {
 
       {/* ui breaks when removed  TODO: investigate*/}
       <div />
-      {/* {series.map((info: CardProps) => (
-        <Card key={info.title} {...info} />
-      ))} */}
+      {series.map((info: CardProps) => (
+        <MovieCard key={info.title} {...info} />
+      ))}
       <LoadMore url={url} handler={updater} />
     </>
   );

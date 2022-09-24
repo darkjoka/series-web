@@ -3,7 +3,7 @@ import { GetStaticProps } from "next";
 import React, { useState } from "react";
 
 import { Meta } from "../components/Meta";
-// import WideCard from '../components/wideCard';
+import TrailerCard from "../components/trailerCard";
 import { TrailerProps } from "../shared/constants/types";
 
 const dayInSeconds = 60 * 60 * 24;
@@ -51,9 +51,9 @@ export default function App({
         keywords={keywords}
       />
       <div />
-      {/* {data.map(info => (
-        <WideCard key={info.permalink} {...info} />
-      ))} */}
+      {data.map((info) => (
+        <TrailerCard key={info.permalink} {...info} />
+      ))}
     </>
   );
 }
